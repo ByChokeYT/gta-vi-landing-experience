@@ -8,6 +8,7 @@ import Protagonists from "@/components/Protagonists.astro"
 import RadioPlayer from "@/components/RadioPlayer.astro"
 import SocialFeed from "@/components/SocialFeed.astro"
 import Gallery from "@/components/Gallery.astro"
+import StoreEditions from "@/components/StoreEditions.astro"
 import FAQ from "@/components/FAQ.astro"
 import Countdown from "@/components/Countdown.astro"
 import TrailerModal from "@/components/TrailerModal.astro"
@@ -26,6 +27,7 @@ import Footer from "@/components/Footer.astro"
     <RadioPlayer />
     <SocialFeed />
     <Gallery />
+    <StoreEditions />
     <FAQ />
     <Countdown />
     <Footer />
@@ -40,14 +42,17 @@ import Footer from "@/components/Footer.astro"
 
   gsap.registerPlugin(ScrollTrigger)
 
+  // Disable GSAP's scroll normalization to prevent mouse wheel from being captured
+  ScrollTrigger.normalizeScroll(false)
+
   // 1. Initial Hero Mask Animation Timeline (Original exact behavior)
   const tl = gsap.timeline({
     ease: "power2.out",
     scrollTrigger: {
       trigger: "body",
       start: "top top",
-      end: "100% top", // Scrub over 1 screen height
-      scrub: 1,
+      end: () => window.innerHeight, // Scrub over exactly 1 screen height (100vh)
+      scrub: 0.5,
     },
   })
 
