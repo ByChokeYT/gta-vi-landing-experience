@@ -1,0 +1,69 @@
+---
+import LuciaPortrait from "@/assets/lucia-portrait.png"
+import JasonPortrait from "@/assets/jason-portrait.png"
+---
+
+<!-- Section: Protagonists -->
+<section id="personajes" class="scroll-mt-28 space-y-16 py-12">
+  <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll">
+    <span class="text-xs font-bold tracking-widest text-orange-500 uppercase bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">
+      Personajes Principales
+    </span>
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">DOS HISTORIAS, UN DESTINO</h2>
+    <p class="text-zinc-400 font-narrow text-base md:text-lg">
+      Una historia de confianza, traición y crimen en el corazón de Leonida. Controla a la primera protagonista femenina de la franquicia y a su compañero de crímenes.
+    </p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 reveal-section">
+    <!-- Lucia Card -->
+    <div class="group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 backdrop-blur-md hover:border-pink-500/30 transition-all duration-500 flex flex-col reveal-item">
+      <!-- Pink Glow backdrop -->
+      <div class="absolute -top-40 -left-40 size-80 rounded-full bg-pink-600/10 blur-3xl pointer-events-none group-hover:bg-pink-600/20 transition-all duration-700"></div>
+      
+      <div class="aspect-[16/10] w-full overflow-hidden relative">
+        <img src={LuciaPortrait.src} alt="Lucia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/10 to-transparent"></div>
+        <div class="absolute bottom-6 left-8">
+          <span class="text-xs font-bold uppercase tracking-[4px] text-pink-500">Protagonista</span>
+          <h3 class="text-3xl md:text-4xl font-extrabold text-white tracking-wide mt-1">LUCIA</h3>
+        </div>
+      </div>
+      
+      <div class="p-8 flex-grow space-y-4">
+        <p class="text-zinc-300 font-narrow leading-relaxed">
+          Decidida, astuta y leal. Lucia es una superviviente nata que regresa a las calles tras un paso por prisión. Junto a Jason, se embarca en una espiral criminal buscando el golpe definitivo para cambiar sus vidas en Leonida.
+        </p>
+        <div class="border-t border-zinc-800/60 pt-4 flex gap-4 text-xs font-semibold tracking-wider text-zinc-400">
+          <div><span class="text-pink-500">Habilidades:</span> Planificación, Combate</div>
+          <div><span class="text-pink-500">Origen:</span> Vice City</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Jason Card -->
+    <div class="group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 backdrop-blur-md hover:border-orange-500/30 transition-all duration-500 flex flex-col reveal-item">
+      <!-- Orange Glow backdrop -->
+      <div class="absolute -top-40 -right-40 size-80 rounded-full bg-orange-600/10 blur-3xl pointer-events-none group-hover:bg-orange-600/20 transition-all duration-700"></div>
+      
+      <div class="aspect-[16/10] w-full overflow-hidden relative">
+        <img src={JasonPortrait.src} alt="Jason" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/10 to-transparent"></div>
+        <div class="absolute bottom-6 left-8">
+          <span class="text-xs font-bold uppercase tracking-[4px] text-orange-500">Coprotagonista</span>
+          <h3 class="text-3xl md:text-4xl font-extrabold text-white tracking-wide mt-1">JASON</h3>
+        </div>
+      </div>
+      
+      <div class="p-8 flex-grow space-y-4">
+        <p class="text-zinc-300 font-narrow leading-relaxed">
+          Silencioso pero letal, leal y comprometido. Jason es un personaje misterioso arrastrado al círculo íntimo de Lucia. Su relación pondrá a prueba no solo su capacidad para delinquir, sino también su confianza mutua en situaciones extremas.
+        </p>
+        <div class="border-t border-zinc-800/60 pt-4 flex gap-4 text-xs font-semibold tracking-wider text-zinc-400">
+          <div><span class="text-orange-500">Habilidades:</span> Conducción, Armas</div>
+          <div><span class="text-orange-500">Origen:</span> Leonida</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

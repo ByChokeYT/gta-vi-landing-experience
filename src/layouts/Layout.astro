@@ -8,11 +8,29 @@ import KeepScrolling from "@/assets/keep-scrolling.svg"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Landing GTA VI by @midudev</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Grand Theft Auto VI - Landing Page Oficial de Tributo</title>
+    <meta name="title" content="Grand Theft Auto VI - Landing Page Oficial de Tributo" />
+    <meta name="description" content="Bienvenido al estado de Leonida y a las calles de Vice City. Explora los personajes, la música, la galería y prepárate para el lanzamiento de GTA VI." />
+    <meta name="keywords" content="GTA VI, Grand Theft Auto VI, Vice City, Lucia, Jason, Rockstar Games, Leonida, GTA 6" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Grand Theft Auto VI - Landing Page Oficial de Tributo" />
+    <meta property="og:description" content="Bienvenido al estado de Leonida y a las calles de Vice City. Explora los personajes, la música, la galería y prepárate para el lanzamiento de GTA VI." />
+    <meta property="og:image" content="/favicon.svg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:title" content="Grand Theft Auto VI - Landing Page Oficial de Tributo" />
+    <meta property="twitter:description" content="Bienvenido al estado de Leonida y a las calles de Vice City. Explora los personajes, la música, la galería y prepárate para el lanzamiento de GTA VI." />
+    <meta property="twitter:image" content="/favicon.svg" />
   </head>
   <body>
     <slot />
     <KeepScrolling
+      id="keep-scrolling"
       class="fixed bottom-3 right-0 left-0 mx-auto text-pink-300 drop-shadow-2xl animate-bounce-pulse"
     />
   </body>
@@ -50,13 +68,35 @@ import KeepScrolling from "@/assets/keep-scrolling.svg"
 
   html,
   body {
-    background: #111;
-    height: 300vh;
+    background: #09090b;
     overflow-x: hidden;
     overscroll-behavior: none;
     color: white;
     margin: 0;
     width: 100%;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom premium scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 4px;
+    border: 2px solid #09090b;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ec4899;
+  }
+
+  /* Selection style */
+  ::selection {
+    background: #ec4899;
+    color: white;
   }
 
   @font-face {

@@ -1,0 +1,113 @@
+---
+import Ps5Icon from "@/assets/ps5.svg"
+import XboxIcon from "@/assets/xbox.svg"
+---
+
+<!-- Section: Release & Platforms -->
+<section id="reservar" class="scroll-mt-28 py-16 relative">
+  <!-- Sunset glow behind -->
+  <div class="absolute inset-0 bg-gradient-to-t from-pink-600/5 via-orange-600/5 to-transparent blur-3xl pointer-events-none rounded-full max-w-4xl mx-auto h-[80%] my-auto"></div>
+  
+  <div class="relative text-center max-w-3xl mx-auto space-y-12 reveal-on-scroll">
+    <div class="space-y-4">
+      <span class="text-xs font-bold tracking-widest text-orange-500 uppercase bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">
+        Lanzamiento Global
+      </span>
+      <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight">PREPÁRATE PARA EL VIAJE</h2>
+      <p class="text-zinc-400 font-narrow text-lg max-w-xl mx-auto">
+        Grand Theft Auto VI llegará a las consolas de última generación. Únete a la preventa oficial.
+      </p>
+    </div>
+    
+    <!-- Countdown -->
+    <div class="grid grid-cols-4 gap-3 max-w-lg mx-auto text-center font-mono">
+      <div class="bg-zinc-950/80 border border-zinc-800/80 backdrop-blur rounded-2xl p-4 shadow-xl">
+        <span id="days" class="block text-3xl md:text-5xl font-extrabold bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">00</span>
+        <span class="text-[10px] md:text-xs uppercase tracking-wider text-zinc-500 font-sans mt-1 block">Días</span>
+      </div>
+      <div class="bg-zinc-950/80 border border-zinc-800/80 backdrop-blur rounded-2xl p-4 shadow-xl">
+        <span id="hours" class="block text-3xl md:text-5xl font-extrabold bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">00</span>
+        <span class="text-[10px] md:text-xs uppercase tracking-wider text-zinc-500 font-sans mt-1 block">Horas</span>
+      </div>
+      <div class="bg-zinc-950/80 border border-zinc-800/80 backdrop-blur rounded-2xl p-4 shadow-xl">
+        <span id="minutes" class="block text-3xl md:text-5xl font-extrabold bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">00</span>
+        <span class="text-[10px] md:text-xs uppercase tracking-wider text-zinc-500 font-sans mt-1 block">Minutos</span>
+      </div>
+      <div class="bg-zinc-950/80 border border-zinc-800/80 backdrop-blur rounded-2xl p-4 shadow-xl">
+        <span id="seconds" class="block text-3xl md:text-5xl font-extrabold bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">00</span>
+        <span class="text-[10px] md:text-xs uppercase tracking-wider text-zinc-500 font-sans mt-1 block">Segundos</span>
+      </div>
+    </div>
+    
+    <!-- Platform Cards -->
+    <div class="space-y-6">
+      <h3 class="text-sm font-bold uppercase tracking-[4px] text-zinc-500">Disponible en</h3>
+      <div class="flex flex-wrap justify-center gap-6">
+        <!-- PS5 Card -->
+        <div class="flex items-center gap-4 bg-zinc-900/40 border border-zinc-800/60 rounded-2xl px-6 py-4 hover:border-blue-500/30 transition-all duration-300">
+          <Ps5Icon class="h-6 w-auto text-white" />
+          <span class="font-bold text-sm tracking-wider">PLAYSTATION 5</span>
+        </div>
+        <!-- Xbox Card -->
+        <div class="flex items-center gap-4 bg-zinc-900/40 border border-zinc-800/60 rounded-2xl px-6 py-4 hover:border-green-500/30 transition-all duration-300">
+          <XboxIcon class="h-6 w-auto text-white" />
+          <span class="font-bold text-sm tracking-wider">XBOX SERIES X|S</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Newsletter / Social Club Membership Sign-up Card -->
+    <div class="max-w-md mx-auto bg-zinc-950/50 border border-zinc-800/80 rounded-3xl p-6 md:p-8 space-y-6 relative overflow-hidden shadow-2xl">
+      <div class="absolute -top-10 -right-10 size-32 rounded-full bg-orange-500/5 blur-2xl pointer-events-none"></div>
+      <div class="space-y-2 text-center">
+        <h4 class="font-bold text-lg tracking-wide">Únete al Social Club</h4>
+        <p class="text-xs text-zinc-400 font-narrow">Recibe las últimas noticias y alertas sobre la preventa de GTA VI.</p>
+      </div>
+      
+      <form id="newsletter-form" class="space-y-4">
+        <div class="relative">
+          <input
+            type="email"
+            id="newsletter-email"
+            placeholder="Introduce tu correo electrónico"
+            required
+            class="w-full bg-zinc-900 border border-zinc-800 rounded-full px-5 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-pink-500 transition-colors"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full relative group px-6 py-3 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer overflow-hidden border-0 bg-transparent"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full group-hover:opacity-90 transition-opacity"></div>
+          <span class="relative text-white">Suscribirse</span>
+        </button>
+      </form>
+      <div id="newsletter-success" class="hidden text-xs text-green-400 font-semibold text-center mt-2">
+        ✓ ¡Registro exitoso! Te avisaremos cuando se abran las reservas.
+      </div>
+    </div>
+
+    <!-- Purchase Action -->
+    <div class="pt-6">
+      <button class="relative group px-8 py-4 rounded-full font-bold text-lg tracking-wider uppercase transition-all duration-500 cursor-pointer overflow-hidden border-0 bg-transparent">
+        <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 rounded-full group-hover:scale-105 transition-transform duration-300"></div>
+        <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 opacity-30 blur rounded-full group-hover:opacity-75 transition duration-500"></div>
+        <span class="relative text-white">RESERVAR AHORA</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Newsletter Form Logic
+  const form = document.getElementById("newsletter-form");
+  const successMsg = document.getElementById("newsletter-success");
+  
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (successMsg && form) {
+      form.classList.add("hidden");
+      successMsg.classList.remove("hidden");
+    }
+  });
+</script>

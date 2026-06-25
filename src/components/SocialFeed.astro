@@ -1,0 +1,282 @@
+---
+import ViceCityScenery from "@/assets/vice-city-scenery.png"
+import HeroKeyBackground from "@/assets/hero-key-background.webp"
+import ViceCityNight from "@/assets/vice-city-night.png"
+---
+
+<!-- Section: Social Feed -->
+<section id="social" class="scroll-mt-28 space-y-16 py-12 relative">
+  
+  <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll">
+    <span class="text-xs font-bold tracking-widest text-orange-500 uppercase bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">
+      Leonida Social Club
+    </span>
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">VIRALES DE LEONIDA</h2>
+    <p class="text-zinc-400 font-narrow text-base md:text-lg">
+      El estado de Leonida está completamente loco. Echa un vistazo a las últimas publicaciones virales que circulan por las redes de Vice City.
+    </p>
+  </div>
+
+  <!-- Social Feed Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto reveal-section">
+    
+    <!-- Post 1: Wildlife Florida Man -->
+    <div class="relative aspect-[9/16] bg-zinc-950 border border-zinc-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col group social-card reveal-item">
+      <img src={ViceCityScenery.src} alt="Post background" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-102 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
+      
+      <!-- Top header -->
+      <div class="relative z-10 p-4 flex justify-between items-center text-white/90 text-xs">
+        <span class="font-bold tracking-wider uppercase bg-black/45 px-2.5 py-1 rounded-full border border-zinc-800/40 backdrop-blur-sm">EN DIRECTO</span>
+        <span class="font-semibold drop-shadow">Hace 2 horas</span>
+      </div>
+
+      <!-- Floating Heart spawn area -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden heart-spawn-zone"></div>
+
+      <!-- Bottom overlay metadata -->
+      <div class="mt-auto relative z-10 p-5 space-y-4 text-white">
+        <div class="flex items-center gap-3">
+          <div class="size-8 rounded-full border border-pink-500 bg-pink-500/20 flex items-center justify-center font-bold text-xs">LW</div>
+          <div>
+            <span class="block text-xs font-bold font-sans">@LeonidaWildlife</span>
+            <span class="block text-[10px] text-zinc-400 font-narrow">Suburbs Area</span>
+          </div>
+        </div>
+        <p class="text-xs font-narrow leading-relaxed">
+          Un caimán de 4 metros acaba de entrar al supermercado buscando café con leche. Solo en el estado de Leonida. #FloridaMan #WildLeonida
+        </p>
+
+        <!-- Interactive Stats footer -->
+        <div class="flex justify-between items-center border-t border-white/10 pt-3">
+          <div class="flex items-center gap-4">
+            <button class="like-btn flex items-center gap-1.5 hover:text-pink-500 transition-colors cursor-pointer group/like">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 fill-none stroke-current stroke-2 group-hover/like:fill-pink-500/10 transition-all text-white active:scale-125 duration-200" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span class="like-count text-xs font-mono font-bold" data-base-likes="128500">128.5K</span>
+            </button>
+            <div class="flex items-center gap-1 text-zinc-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <span class="text-xs font-mono">1.2K</span>
+            </div>
+          </div>
+          <button class="share-btn text-zinc-300 hover:text-white cursor-pointer" aria-label="Compartir publicación">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 10.742l4.685-2.342m0 5.2l-4.685-2.342M19 12a3 3 0 11-6 0 3 3 0 016 0zm-6-7a3 3 0 11-6 0 3 3 0 016 0zm-6 14a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 2: Street Racing drifting -->
+    <div class="relative aspect-[9/16] bg-zinc-950 border border-zinc-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col group social-card reveal-item">
+      <img src={ViceCityNight.src} alt="Post background" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-102 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
+      
+      <!-- Top header -->
+      <div class="relative z-10 p-4 flex justify-between items-center text-white/90 text-xs">
+        <span class="font-bold tracking-wider uppercase bg-pink-500/80 px-2.5 py-1 rounded-full border border-pink-400/40 backdrop-blur-sm animate-pulse">VIRAL</span>
+        <span class="font-semibold drop-shadow">Hace 5 horas</span>
+      </div>
+
+      <!-- Floating Heart spawn area -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden heart-spawn-zone"></div>
+
+      <!-- Bottom overlay metadata -->
+      <div class="mt-auto relative z-10 p-5 space-y-4 text-white">
+        <div class="flex items-center gap-3">
+          <div class="size-8 rounded-full border border-orange-500 bg-orange-500/20 flex items-center justify-center font-bold text-xs">VD</div>
+          <div>
+            <span class="block text-xs font-bold font-sans">@ViceDriftLeague</span>
+            <span class="block text-[10px] text-zinc-400 font-narrow">Port Gellhorn</span>
+          </div>
+        </div>
+        <p class="text-xs font-narrow leading-relaxed">
+          ¿Alguien vio a Jason y Lucia haciendo trompos con el Cheetah antes del atardecer? La policía de Vice City no pudo ni seguirlos. #Drifting #CopChase
+        </p>
+
+        <!-- Interactive Stats footer -->
+        <div class="flex justify-between items-center border-t border-white/10 pt-3">
+          <div class="flex items-center gap-4">
+            <button class="like-btn flex items-center gap-1.5 hover:text-pink-500 transition-colors cursor-pointer group/like">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 fill-none stroke-current stroke-2 group-hover/like:fill-pink-500/10 transition-all text-white active:scale-125 duration-200" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span class="like-count text-xs font-mono font-bold" data-base-likes="342900">342.9K</span>
+            </button>
+            <div class="flex items-center gap-1 text-zinc-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <span class="text-xs font-mono">4.8K</span>
+            </div>
+          </div>
+          <button class="share-btn text-zinc-300 hover:text-white cursor-pointer" aria-label="Compartir publicación">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 10.742l4.685-2.342m0 5.2l-4.685-2.342M19 12a3 3 0 11-6 0 3 3 0 016 0zm-6-7a3 3 0 11-6 0 3 3 0 016 0zm-6 14a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 3: Yacht Rooftop Pool Party -->
+    <div class="relative aspect-[9/16] bg-zinc-950 border border-zinc-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col group social-card reveal-item">
+      <img src={HeroKeyBackground.src} alt="Post background" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-102 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
+      
+      <!-- Top header -->
+      <div class="relative z-10 p-4 flex justify-between items-center text-white/90 text-xs">
+        <span class="font-bold tracking-wider uppercase bg-black/45 px-2.5 py-1 rounded-full border border-zinc-800/40 backdrop-blur-sm">RECOMENDADO</span>
+        <span class="font-semibold drop-shadow">Ayer</span>
+      </div>
+
+      <!-- Floating Heart spawn area -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden heart-spawn-zone"></div>
+
+      <!-- Bottom overlay metadata -->
+      <div class="mt-auto relative z-10 p-5 space-y-4 text-white">
+        <div class="flex items-center gap-3">
+          <div class="size-8 rounded-full border border-pink-500 bg-pink-500/20 flex items-center justify-center font-bold text-xs">VN</div>
+          <div>
+            <span class="block text-xs font-bold font-sans">@ViceNights</span>
+            <span class="block text-[10px] text-zinc-400 font-narrow">Sunset Strip Hotel</span>
+          </div>
+        </div>
+        <p class="text-xs font-narrow leading-relaxed">
+          Las mejores fiestas de piscina están de vuelta en el centro de Vice City. Tragos, yates y atardeceres de ensueño. Bienvenidos al club. #ViceCityLuxury #YachtParty
+        </p>
+
+        <!-- Interactive Stats footer -->
+        <div class="flex justify-between items-center border-t border-white/10 pt-3">
+          <div class="flex items-center gap-4">
+            <button class="like-btn flex items-center gap-1.5 hover:text-pink-500 transition-colors cursor-pointer group/like">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5 fill-none stroke-current stroke-2 group-hover/like:fill-pink-500/10 transition-all text-white active:scale-125 duration-200" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              <span class="like-count text-xs font-mono font-bold" data-base-likes="712600">712.6K</span>
+            </button>
+            <div class="flex items-center gap-1 text-zinc-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <span class="text-xs font-mono">9.3K</span>
+            </div>
+          </div>
+          <button class="share-btn text-zinc-300 hover:text-white cursor-pointer" aria-label="Compartir publicación">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 10.742l4.685-2.342m0 5.2l-4.685-2.342M19 12a3 3 0 11-6 0 3 3 0 016 0zm-6-7a3 3 0 11-6 0 3 3 0 016 0zm-6 14a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Floating Heart Keyframes Animation */
+  @keyframes float-heart {
+    0% {
+      transform: translateY(0) scale(0.5) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-200px) scale(1.2) rotate(var(--tw-rotate-val, 20deg));
+      opacity: 0;
+    }
+  }
+
+  /* Added dynamically via JS */
+  .floating-heart {
+    position: absolute;
+    bottom: 80px;
+    font-size: 24px;
+    pointer-events: none;
+    z-index: 50;
+    animation: float-heart 1.5s ease-out forwards;
+  }
+</style>
+
+<script>
+  const socialCards = document.querySelectorAll(".social-card");
+
+  socialCards.forEach(card => {
+    const likeBtn = card.querySelector(".like-btn");
+    const likeCount = card.querySelector(".like-count") as HTMLElement;
+    const spawnZone = card.querySelector(".heart-spawn-zone") as HTMLElement;
+    const baseLikes = parseInt(likeCount?.getAttribute("data-base-likes") || "0");
+    
+    let likes = baseLikes;
+    let hasLiked = false;
+
+    likeBtn?.addEventListener("click", () => {
+      const svg = likeBtn.querySelector("svg");
+      
+      if (!hasLiked) {
+        hasLiked = true;
+        likes += 1;
+        
+        // Toggle Heart Visual State
+        svg?.classList.remove("fill-none");
+        svg?.classList.add("fill-pink-500", "text-pink-500");
+        
+        // Spawn Floating Heart Effect
+        createFloatingHeart(spawnZone);
+      } else {
+        hasLiked = false;
+        likes -= 1;
+        
+        // Untoggle
+        svg?.classList.add("fill-none");
+        svg?.classList.remove("fill-pink-500", "text-pink-500");
+      }
+      
+      // Update Counter formatted
+      if (likeCount) {
+        likeCount.innerText = formatLikes(likes);
+      }
+    });
+  });
+
+  // Floating Heart Creator
+  function createFloatingHeart(zone: HTMLElement) {
+    if (!zone) return;
+    
+    const heart = document.createElement("div");
+    heart.className = "floating-heart";
+    heart.innerHTML = `
+      <svg class="size-6 text-pink-500 fill-pink-500 drop-shadow-[0_0_8px_rgba(236,72,153,0.6)]" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    `;
+    
+    // Random horizontal position inside the card
+    const randomLeft = Math.floor(Math.random() * 80) + 10; // 10% to 90%
+    heart.style.left = `${randomLeft}%`;
+    
+    // Random rotation value for animation
+    const randomRotate = Math.floor(Math.random() * 60) - 30; // -30deg to 30deg
+    heart.style.setProperty("--tw-rotate-val", `${randomRotate}deg`);
+    
+    zone.appendChild(heart);
+    
+    // Remove from DOM after animation completes
+    setTimeout(() => {
+      heart.remove();
+    }, 1500);
+  }
+
+  // Format Helper: 128500 -> "128.5K"
+  function formatLikes(num: number): string {
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + "K";
+    }
+    return num.toString();
+  }
+</script>

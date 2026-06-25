@@ -1,0 +1,49 @@
+---
+import ViceCityScenery from "@/assets/vice-city-scenery.png"
+---
+
+<!-- Section: Leonida -->
+<section id="leonida" class="scroll-mt-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-12">
+  <div class="space-y-6 reveal-on-scroll">
+    <span class="text-xs font-bold tracking-widest text-pink-500 uppercase bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
+      El Estado de Leonida
+    </span>
+    <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
+      VICE CITY ESTÁ DE VUELTA
+    </h2>
+    <p class="text-lg md:text-xl text-zinc-300 font-narrow leading-relaxed">
+      Grand Theft Auto VI se dirige al estado de Leonida, hogar de las calles bañadas en neón de Vice City y los extensos suburbios, pantanos y playas de la región más grande y realista jamás creada para la franquicia.
+    </p>
+    <div class="pt-4">
+      <a
+        href="#personajes"
+        class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 font-semibold group transition-colors"
+      >
+        Conoce a Lucía y Jason
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+  
+  <div class="relative reveal-on-scroll">
+    <!-- Glow effect -->
+    <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-pink-500 to-orange-500 opacity-20 blur-xl"></div>
+    
+    <!-- Showcase Card -->
+    <div class="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/80 backdrop-blur p-8 md:p-10 space-y-6">
+      <div class="h-64 rounded-2xl overflow-hidden relative group">
+        <img src={ViceCityScenery.src} alt="Vice City Sunset" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+        <span class="absolute bottom-4 left-4 text-sm font-bold tracking-wider text-white uppercase drop-shadow">Ocean Drive</span>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xl md:text-2xl font-bold">Un mundo vivo y peligroso</h3>
+        <p class="text-sm md:text-base text-zinc-400 font-narrow leading-relaxed">
+          Desde los pantanos salvajes llenos de caimanes hasta los rascacielos del centro financiero, cada rincón de Leonida está lleno de vida, misterios y oportunidades para el crimen.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

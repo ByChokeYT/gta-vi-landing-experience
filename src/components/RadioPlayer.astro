@@ -1,0 +1,293 @@
+---
+---
+
+<section id="radio" class="scroll-mt-28 space-y-16 py-12 relative">
+  <!-- Glowing neon grid behind -->
+  <div class="absolute inset-0 bg-gradient-to-b from-purple-600/5 via-pink-600/5 to-transparent blur-3xl pointer-events-none rounded-full max-w-4xl mx-auto h-[90%] my-auto"></div>
+
+  <div class="relative text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll">
+    <span class="text-xs font-bold tracking-widest text-pink-500 uppercase bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
+      Leonida Sounds
+    </span>
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">VICE CITY RADIO</h2>
+    <p class="text-zinc-400 font-narrow text-base md:text-lg">
+      Sintoniza el sonido oficial de las calles. Elige tu emisora y disfruta de la música en un reproductor de cassette clásico totalmente interactivo.
+    </p>
+  </div>
+
+  <div class="relative max-w-2xl mx-auto border border-zinc-800 bg-zinc-950/80 rounded-3xl p-6 md:p-10 shadow-2xl flex flex-col md:flex-row gap-10 items-center reveal-on-scroll">
+    
+    <!-- Left side: Cassette Tape Graphic -->
+    <div class="relative w-72 h-44 bg-zinc-900 border-4 border-zinc-950 rounded-xl shadow-xl flex flex-col p-3 overflow-hidden select-none shrink-0">
+      <!-- Tape Sticker Label -->
+      <div id="cassette-label" class="w-full h-14 bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 rounded-lg flex flex-col items-center justify-center text-white px-4 border border-zinc-950 shadow-inner">
+        <span class="text-[10px] uppercase font-bold tracking-[3px] opacity-75">Leonida Broadcast</span>
+        <span id="active-station-label" class="text-sm font-extrabold tracking-widest uppercase truncate mt-0.5">FLASH FM - SYNTHWAVE</span>
+      </div>
+
+      <!-- Cassette Window & Reels -->
+      <div class="flex-grow flex items-center justify-between px-10 relative">
+        <div class="absolute inset-x-8 top-1/2 -translate-y-1/2 h-10 bg-zinc-950/80 border border-zinc-800/80 rounded-full shadow-inner flex items-center justify-between px-3">
+          <!-- Left Reel -->
+          <div id="reel-left" class="size-8 rounded-full border-4 border-zinc-700 bg-zinc-900 flex items-center justify-center relative">
+            <!-- Spokes -->
+            <div class="absolute inset-0 flex items-center justify-center rotate-0 reel-spoke">
+              <div class="w-full h-0.5 bg-zinc-700"></div>
+              <div class="w-full h-0.5 bg-zinc-700 rotate-45"></div>
+              <div class="w-full h-0.5 bg-zinc-700 rotate-90"></div>
+            </div>
+            <div class="size-3 rounded-full bg-zinc-950"></div>
+          </div>
+          <!-- Center tape window view -->
+          <div class="w-16 h-4 bg-zinc-900/60 rounded flex items-center justify-center overflow-hidden">
+            <!-- Simulated tape roll -->
+            <div class="w-10 h-0.5 bg-yellow-600/30"></div>
+          </div>
+          <!-- Right Reel -->
+          <div id="reel-right" class="size-8 rounded-full border-4 border-zinc-700 bg-zinc-900 flex items-center justify-center relative">
+            <div class="absolute inset-0 flex items-center justify-center rotate-0 reel-spoke">
+              <div class="w-full h-0.5 bg-zinc-700"></div>
+              <div class="w-full h-0.5 bg-zinc-700 rotate-45"></div>
+              <div class="w-full h-0.5 bg-zinc-700 rotate-90"></div>
+            </div>
+            <div class="size-3 rounded-full bg-zinc-950"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cassette branding / bottom notch -->
+      <div class="flex justify-between items-center text-[8px] text-zinc-500 font-mono pt-1">
+        <span>TDK 90</span>
+        <span>STEREO</span>
+      </div>
+    </div>
+
+    <!-- Right Side: Radio Controls -->
+    <div class="flex-grow w-full space-y-6">
+      <!-- Emisoras Buttons -->
+      <div class="grid grid-cols-3 gap-3">
+        <button
+          class="station-btn active group px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-pink-500/30 text-left transition-all cursor-pointer"
+          data-station="flash"
+          data-label="FLASH FM - SYNTHWAVE"
+          data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        >
+          <div class="text-[10px] text-pink-500 font-bold uppercase tracking-wider mb-0.5">Flash FM</div>
+          <div class="text-xs font-bold text-zinc-300 group-[.active]:text-white">Pop Synth</div>
+        </button>
+        <button
+          class="station-btn group px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-purple-500/30 text-left transition-all cursor-pointer"
+          data-station="fever"
+          data-label="FEVER 105 - RETRO SOUL"
+          data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        >
+          <div class="text-[10px] text-purple-400 font-bold uppercase tracking-wider mb-0.5">Fever 105</div>
+          <div class="text-xs font-bold text-zinc-300 group-[.active]:text-white">Funk & Soul</div>
+        </button>
+        <button
+          class="station-btn group px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-orange-500/30 text-left transition-all cursor-pointer"
+          data-station="vrock"
+          data-label="V-ROCK - HEAVY RHYTHMS"
+          data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+        >
+          <div class="text-[10px] text-orange-400 font-bold uppercase tracking-wider mb-0.5">V-Rock</div>
+          <div class="text-xs font-bold text-zinc-300 group-[.active]:text-white">Heavy Rock</div>
+        </button>
+      </div>
+
+      <!-- Play / Volume / EQ -->
+      <div class="flex items-center justify-between gap-6 border-t border-zinc-900 pt-6">
+        <!-- Play / Pause -->
+        <button
+          id="radio-play-toggle"
+          class="size-14 rounded-full bg-white hover:bg-pink-100 text-black flex items-center justify-center cursor-pointer hover:scale-105 transition-all shadow-lg"
+          aria-label="Reproducir Radio"
+        >
+          <!-- Play SVG Icon -->
+          <svg id="radio-play-icon" xmlns="http://www.w3.org/2000/svg" class="size-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <!-- Pause SVG Icon (Hidden by default) -->
+          <svg id="radio-pause-icon" xmlns="http://www.w3.org/2000/svg" class="size-6 hidden" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+          </svg>
+        </button>
+
+        <!-- Volume Slider -->
+        <div class="flex-grow flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+          <input
+            type="range"
+            id="radio-volume"
+            min="0"
+            max="100"
+            value="80"
+            class="w-full accent-pink-500 bg-zinc-800 rounded-lg h-1.5 cursor-pointer appearance-none"
+          />
+        </div>
+      </div>
+
+      <!-- Animated Wave Equalizer -->
+      <div class="h-10 border border-zinc-900 bg-zinc-950 rounded-xl px-4 flex items-center justify-between gap-1 overflow-hidden">
+        <span class="text-[9px] font-mono text-zinc-500 select-none">EQ</span>
+        <div class="flex items-end justify-center gap-[3px] h-full pb-1.5 flex-grow max-w-[80%] mx-auto">
+          <!-- Visualizer Bars -->
+          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
+        </div>
+        <span id="eq-state" class="text-[9px] font-mono text-zinc-500 select-none">OFF</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Cassette Reel Rotate Animation */
+  @keyframes spin-reel {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .spinning .reel-spoke {
+    animation: spin-reel 4s linear infinite;
+  }
+</style>
+
+<script>
+  // Radio audio playing state variables
+  let audio: HTMLAudioElement | null = null;
+  let isPlaying = false;
+  let currentVolume = 0.8;
+  
+  const playToggle = document.getElementById("radio-play-toggle");
+  const playIcon = document.getElementById("radio-play-icon");
+  const pauseIcon = document.getElementById("radio-pause-icon");
+  const volumeSlider = document.getElementById("radio-volume") as HTMLInputElement;
+  const activeStationLabel = document.getElementById("active-station-label");
+  const eqState = document.getElementById("eq-state");
+  const visualizerBars = document.querySelectorAll(".visualizer-bar");
+  
+  const reelLeft = document.getElementById("reel-left");
+  const reelRight = document.getElementById("reel-right");
+  const stationButtons = document.querySelectorAll(".station-btn");
+
+  let visualizerInterval: any = null;
+
+  // Initialize Audio with first active button config
+  const initialBtn = document.querySelector(".station-btn.active");
+  const initialUrl = initialBtn?.getAttribute("data-url") || "";
+
+  function initializeAudio(url: string) {
+    if (audio) {
+      audio.pause();
+    }
+    audio = new Audio(url);
+    audio.loop = true;
+    audio.volume = currentVolume;
+  }
+
+  if (initialUrl) {
+    initializeAudio(initialUrl);
+  }
+
+  // Toggle play/pause
+  function togglePlay() {
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      playIcon?.classList.remove("hidden");
+      pauseIcon?.classList.add("hidden");
+      reelLeft?.classList.remove("spinning");
+      reelRight?.classList.remove("spinning");
+      if (eqState) eqState.innerText = "OFF";
+      stopVisualizer();
+    } else {
+      audio.play().then(() => {
+        isPlaying = true;
+        playIcon?.classList.add("hidden");
+        pauseIcon?.classList.remove("hidden");
+        reelLeft?.classList.add("spinning");
+        reelRight?.classList.add("spinning");
+        if (eqState) eqState.innerText = "ON";
+        startVisualizer();
+      }).catch(err => {
+        console.log("Audio play blocked by browser policy. Interacted first.", err);
+      });
+    }
+  }
+
+  playToggle?.addEventListener("click", togglePlay);
+
+  // Volume slider change
+  volumeSlider?.addEventListener("input", (e) => {
+    const val = parseInt((e.target as HTMLInputElement).value);
+    currentVolume = val / 100;
+    if (audio) {
+      audio.volume = currentVolume;
+    }
+  });
+
+  // Station select button click
+  stationButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Remove active from others
+      stationButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Update Labels
+      const label = btn.getAttribute("data-label") || "";
+      const url = btn.getAttribute("data-url") || "";
+      if (activeStationLabel) activeStationLabel.innerText = label;
+
+      // Re-initialize Audio and Auto Play if currently playing
+      const wasPlaying = isPlaying;
+      initializeAudio(url);
+      
+      if (wasPlaying) {
+        isPlaying = false; // reset state before play call
+        togglePlay();
+      }
+    });
+  });
+
+  // Simple CSS Simulated Visualizer Animation Loop
+  function startVisualizer() {
+    stopVisualizer();
+    visualizerInterval = setInterval(() => {
+      visualizerBars.forEach(bar => {
+        // Random height between 20% and 100%
+        const heightPct = Math.floor(Math.random() * 80) + 20;
+        (bar as HTMLElement).style.height = `${heightPct}%`;
+      });
+    }, 100);
+  }
+
+  function stopVisualizer() {
+    if (visualizerInterval) {
+      clearInterval(visualizerInterval);
+      visualizerInterval = null;
+    }
+    // Revert height to original flat state
+    visualizerBars.forEach(bar => {
+      (bar as HTMLElement).style.height = `4px`;
+    });
+  }
+</script>

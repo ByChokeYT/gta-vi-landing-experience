@@ -1,0 +1,47 @@
+---
+import LogoVI from "@/assets/logo-vi.svg"
+---
+
+<nav
+  id="main-nav"
+  class="fixed top-0 left-0 w-full z-100 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900/60 px-6 py-4 flex items-center justify-between opacity-0 pointer-events-none transition-all duration-500"
+>
+  <div class="flex items-center gap-8">
+    <a href="#" class="flex items-center">
+      <LogoVI class="h-9 w-auto text-white hover:text-pink-500 transition-colors" />
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#leonida" class="relative py-1 text-sm font-semibold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors group/nav">
+        Leonida
+        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-pink-500 to-orange-500 scale-x-0 group-hover/nav:scale-x-100 transition-transform origin-left duration-300"></span>
+      </a>
+      <a href="#personajes" class="relative py-1 text-sm font-semibold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors group/nav">
+        Personajes
+        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-pink-500 to-orange-500 scale-x-0 group-hover/nav:scale-x-100 transition-transform origin-left duration-300"></span>
+      </a>
+      <a href="#radio" class="relative py-1 text-sm font-semibold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors group/nav">
+        Radio
+        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-pink-500 to-orange-500 scale-x-0 group-hover/nav:scale-x-100 transition-transform origin-left duration-300"></span>
+      </a>
+      <a href="#social" class="relative py-1 text-sm font-semibold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors group/nav">
+        Social
+        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-pink-500 to-orange-500 scale-x-0 group-hover/nav:scale-x-100 transition-transform origin-left duration-300"></span>
+      </a>
+      <a href="#galeria" class="relative py-1 text-sm font-semibold tracking-wider uppercase text-zinc-400 hover:text-white transition-colors group/nav">
+        Galería
+        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-pink-500 to-orange-500 scale-x-0 group-hover/nav:scale-x-100 transition-transform origin-left duration-300"></span>
+      </a>
+    </div>
+  </div>
+  <div>
+    <a
+      href="#reservar"
+      class="relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase text-white shadow-lg overflow-hidden group/btn border-0 bg-transparent"
+    >
+      <!-- Pulsing neon glow shadow behind -->
+      <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full group-hover/btn:scale-105 transition-transform duration-300"></div>
+      <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-orange-500 opacity-30 blur rounded-full group-hover/btn:opacity-75 transition duration-500 animate-pulse"></div>
+      <span class="relative">Reservar</span>
+    </a>
+  </div>
+</nav>

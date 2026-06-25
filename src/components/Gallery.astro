@@ -1,0 +1,70 @@
+---
+import ViceCityScenery from "@/assets/vice-city-scenery.png"
+import HeroKeyBackground from "@/assets/hero-key-background.webp"
+import ViceCityNight from "@/assets/vice-city-night.png"
+---
+
+<!-- Section: Gallery -->
+<section id="galeria" class="scroll-mt-28 space-y-16 py-12">
+  <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll">
+    <span class="text-xs font-bold tracking-widest text-pink-500 uppercase bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
+      Galería de Imágenes
+    </span>
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">CAPTURAS OFICIALES</h2>
+    <p class="text-zinc-400 font-narrow text-base md:text-lg">
+      Echa un vistazo al impresionante apartado visual y la atmósfera vibrante de Leonida en las capturas oficiales.
+    </p>
+  </div>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-section">
+    <!-- Item 1 -->
+    <div
+      class="gallery-item reveal-item group relative aspect-[16/9] overflow-hidden rounded-2xl border border-zinc-800 cursor-pointer bg-zinc-950"
+      data-src={ViceCityScenery.src}
+    >
+      <img src={ViceCityScenery.src} alt="Atardecer en Leonida" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <span class="text-white font-bold bg-black/60 px-4 py-2 rounded-full border border-zinc-700/50 backdrop-blur-sm text-sm">Ampliar</span>
+      </div>
+    </div>
+    
+    <!-- Item 2 -->
+    <div
+      class="gallery-item reveal-item group relative aspect-[16/9] overflow-hidden rounded-2xl border border-zinc-800 cursor-pointer bg-zinc-950"
+      data-src={HeroKeyBackground.src}
+    >
+      <img src={HeroKeyBackground.src} alt="Protagonistas de GTA VI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <span class="text-white font-bold bg-black/60 px-4 py-2 rounded-full border border-zinc-700/50 backdrop-blur-sm text-sm">Ampliar</span>
+      </div>
+    </div>
+    
+    <!-- Item 3 -->
+    <div
+      class="gallery-item reveal-item group relative aspect-[16/9] overflow-hidden rounded-2xl border border-zinc-800 cursor-pointer bg-zinc-950"
+      data-src={ViceCityNight.src}
+    >
+      <img src={ViceCityNight.src} alt="Luces de Neón por la noche" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <span class="text-white font-bold bg-black/60 px-4 py-2 rounded-full border border-zinc-700/50 backdrop-blur-sm text-sm">Ampliar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Gallery Modal -->
+<div
+  id="lightbox"
+  class="fixed inset-0 z-100 flex items-center justify-center bg-black/95 opacity-0 pointer-events-none transition-opacity duration-300"
+>
+  <button
+    id="close-lightbox"
+    class="absolute top-4 right-4 text-white hover:text-pink-500 bg-black/40 hover:bg-black/80 backdrop-blur rounded-full p-2 cursor-pointer"
+    aria-label="Cerrar galería"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  <img id="lightbox-img" src="" alt="Gallery Image" class="max-w-[90%] max-h-[85vh] object-contain rounded-lg border border-zinc-800 shadow-2xl" />
+</div>

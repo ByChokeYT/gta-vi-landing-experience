@@ -1,0 +1,68 @@
+---
+import HeroKeyLogo from "@/assets/hero-key-logo.webp"
+import HeroKeyBackground from "@/assets/hero-key-background.webp"
+import LogoVI from "@/assets/logo-vi.svg"
+import PlayButtonIcon from "@/assets/play-button.svg"
+import LogoCutted from "@/assets/logo-cutted.svg"
+---
+
+<!-- Hero Scroll Mask -->
+<div id="logo-mask" class="fixed top-0 left-0 w-full h-screen z-40 bg-white">
+  <section class="h-screen w-full relative">
+    <picture
+      id="hero-key"
+      class="h-full w-full scale-125 block overflow-hidden fixed inset-0"
+    >
+      <img
+        id="hero-key-logo"
+        src={HeroKeyLogo.src}
+        class="absolute w-full h-full object-cover z-10"
+        alt="GTA VI Logo artwork"
+      />
+      <img
+        id="hero-key-background"
+        src={HeroKeyBackground.src}
+        class="w-full h-full object-cover"
+        alt="GTA VI background scenery"
+      />
+    </picture>
+  </section>
+</div>
+
+<!-- Hero Intro UI Controls -->
+<div
+  id="hero-ui"
+  class="fixed flex flex-col items-center justify-between h-screen px-6 md:px-20 py-16 w-full z-50 pointer-events-auto"
+>
+  <header class="flex justify-between w-full">
+    <LogoVI
+      class="size-11 text-white hover:text-yellow-100 transition-colors duration-500 cursor-pointer"
+    />
+  </header>
+
+  <button id="hero-play-button" class="absolute inset-0 m-auto cursor-pointer flex items-center justify-center bg-transparent border-0 outline-none w-fit h-fit">
+    <PlayButtonIcon
+      class="text-white size-32 backdrop-blur-3xl rounded-full hover:scale-110 transition-transform duration-500"
+    />
+  </button>
+
+  <footer id="hero-footer" class="absolute bottom-8 m-auto cursor-pointer group flex flex-col items-center">
+    <LogoCutted
+      class="text-white w-38 drop-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000]"
+    />
+    <span
+      class="absolute uppercase tracking-[6px] whitespace-nowrap text-center top-[49px] font-medium text-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000] left-1/2 -translate-x-1/2 text-lg text-white group-hover:text-pink-400 transition-colors duration-300"
+    >
+      Ver el Tráiler 1
+    </span>
+  </footer>
+</div>
+
+<style>
+  #logo-mask {
+    mask-image: url("/logo-stack.svg");
+    mask-position: center 25%;
+    mask-repeat: no-repeat;
+    mask-size: clamp(5000vh, 3500%, 0vh);
+  }
+</style>
