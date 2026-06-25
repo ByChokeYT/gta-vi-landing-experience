@@ -134,21 +134,21 @@
         <span class="text-[9px] font-mono text-zinc-500 select-none">EQ</span>
         <div class="flex items-end justify-center gap-[3px] h-full pb-1.5 flex-grow max-w-[80%] mx-auto">
           <!-- Visualizer Bars -->
-          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-purple-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-orange-500 rounded-full h-1"></div>
-          <div class="visualizer-bar w-[3px] bg-pink-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
+          <div class="visualizer-bar w-[3px] bg-gradient-to-t from-orange-500 via-pink-500 to-purple-500 rounded-full h-1"></div>
         </div>
         <span id="eq-state" class="text-[9px] font-mono text-zinc-500 select-none">OFF</span>
       </div>
@@ -166,6 +166,12 @@
 
   .spinning .reel-spoke {
     animation: spin-reel 4s linear infinite;
+  }
+
+  /* Smooth visualizer bar height animations */
+  .visualizer-bar {
+    transition: height 0.12s ease-in-out;
+    will-change: height;
   }
 </style>
 
