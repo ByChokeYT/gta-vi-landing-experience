@@ -14,18 +14,6 @@ El concepto inicial del efecto de máscara de scroll de este proyecto y su dise�
 🎥 **[Cómo recrear la web de GTA 6 - Tutorial de midudev](https://www.youtube.com/watch?v=YAgkFlyw_i0)**
 
 A partir de este concepto original enfocado en la máscara de zoom cinemática, expandimos y profesionalizamos la plataforma añadiendo múltiples secciones interactivas, modularizando la arquitectura en componentes aislados y puliendo la estética visual a nivel de una producción comercial.
-
----
-
-## 🤖 Modelo de Desarrollo y Colaboración de IA
-
-Este proyecto ha sido desarrollado e implementado en colaboración con **Antigravity**, un agente de Inteligencia Artificial enfocado en desarrollo de software avanzado creado por el equipo de **Google DeepMind**. 
-
-El modelo de desarrollo estructurado con el agente de IA permitió:
-*   **Modularización Limpia:** Descomponer un archivo monolítico de inicio en un ecosistema de componentes independientes de Astro.
-*   **Optimización de Código:** Limpiar el copy quitando elementos informales (emojis básicos de texto) y sustituyéndolos por animaciones avanzadas de SVG y estilos dinámicos.
-*   **Refactorización Segura:** Asegurar la consistencia visual del ScrollTrigger de GSAP previniendo desalineaciones críticas de la máscara CSS.
-
 ---
 
 ## 🛠️ Tecnologías y Arquitectura

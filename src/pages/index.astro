@@ -3,10 +3,12 @@ import Layout from "@/layouts/Layout.astro"
 import Navbar from "@/components/Navbar.astro"
 import HeroMask from "@/components/HeroMask.astro"
 import Leonida from "@/components/Leonida.astro"
+import Features from "@/components/Features.astro"
 import Protagonists from "@/components/Protagonists.astro"
 import RadioPlayer from "@/components/RadioPlayer.astro"
 import SocialFeed from "@/components/SocialFeed.astro"
 import Gallery from "@/components/Gallery.astro"
+import FAQ from "@/components/FAQ.astro"
 import Countdown from "@/components/Countdown.astro"
 import TrailerModal from "@/components/TrailerModal.astro"
 import Footer from "@/components/Footer.astro"
@@ -19,10 +21,12 @@ import Footer from "@/components/Footer.astro"
   <!-- Main Website Content (Revealed below the fold) -->
   <main id="main-content" class="relative w-full z-30 pt-[100vh] pb-24 px-6 md:px-12 max-w-7xl mx-auto space-y-48">
     <Leonida />
+    <Features />
     <Protagonists />
     <RadioPlayer />
     <SocialFeed />
     <Gallery />
+    <FAQ />
     <Countdown />
     <Footer />
   </main>
