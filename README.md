@@ -1,88 +1,88 @@
-# 🌴 Grand Theft Auto VI — Premium Tribute Landing Page
+# 🌴 gta-vi-landing-experience
 
-Una landing page interactiva de tributo a **Grand Theft Auto VI**, desarrollada con **Astro**, **Tailwind CSS** y **GSAP (ScrollTrigger)**. El proyecto cuenta con un diseño inmersivo y responsivo que traslada la vibrante atmósfera costera y de luces de neón del estado de Leonida y Vice City directamente al navegador.
+Una landing page interactiva y de alto rendimiento que actúa como tributo a **Grand Theft Auto VI**, desarrollada usando **Astro 5**, **Tailwind CSS v4** y **GSAP (ScrollTrigger)**. El sitio traslada la vibrante atmósfera costera y de luces de neón del estado de Leonida y Vice City directamente al navegador.
 
-👉 **Mira el proyecto en tu entorno local:** `http://localhost:4321/`
+Este proyecto destaca por su arquitectura limpia y modular, animaciones fluidas al hacer scroll y elementos altamente interactivos para el usuario.
+
+---
+
+## 💡 Origen del Proyecto e Inspiración
+
+El concepto inicial del efecto de máscara de scroll de este proyecto y su diseño base están inspirados en el videotutorial del creador y desarrollador de software **midudev**:
+🎥 **[Cómo recrear la web de GTA 6 - Tutorial de midudev](https://www.youtube.com/watch?v=YAgkFlyw_i0)**
+
+A partir de este concepto original enfocado en la máscara de zoom cinemática, expandimos y profesionalizamos la plataforma añadiendo múltiples secciones interactivas, modularizando la arquitectura en componentes aislados y puliendo la estética visual a nivel de una producción comercial.
+
+---
+
+## 🤖 Modelo de Desarrollo y Colaboración de IA
+
+Este proyecto ha sido desarrollado e implementado en colaboración con **Antigravity**, un agente de Inteligencia Artificial enfocado en desarrollo de software avanzado creado por el equipo de **Google DeepMind**. 
+
+El modelo de desarrollo estructurado con el agente de IA permitió:
+*   **Modularización Limpia:** Descomponer un archivo monolítico de inicio en un ecosistema de componentes independientes de Astro.
+*   **Optimización de Código:** Limpiar el copy quitando elementos informales (emojis básicos de texto) y sustituyéndolos por animaciones avanzadas de SVG y estilos dinámicos.
+*   **Refactorización Segura:** Asegurar la consistencia visual del ScrollTrigger de GSAP previniendo desalineaciones críticas de la máscara CSS.
+
+---
+
+## 🛠️ Tecnologías y Arquitectura
+
+### Stack Tecnológico
+*   **[Astro 5](https://astro.build/)** — El framework preferido para sitios web enfocados en contenido rápido. Genera HTML estático ultraligero con hidratación mínima de JavaScript.
+*   **[Tailwind CSS v4 (Vite Plugin)](https://tailwindcss.com/)** — Utilizado para una maquetación responsiva moderna, control de colores HSL fluidos, temas neón y transiciones optimizadas por GPU.
+*   **[GSAP & ScrollTrigger](https://gsap.com/)** — Para modelar la línea de tiempo cinemática y la animación de cascada (stagger) de los componentes al hacer scroll.
+*   **[TypeScript](https://www.typescriptlang.org/)** — Controla la lógica interactiva del reproductor de música y las simulaciones de la red social de forma robusta.
+
+### Modos de Construcción y Renderizado
+*   **Modo de Renderizado Estático (Static Build):** El proyecto está configurado para compilarse en modo puramente estático (`output: "static"`). Esto significa que se genera en un conjunto de archivos HTML, CSS y JS optimizados, ideales para ser alojados de forma gratuita y con máxima velocidad en plataformas como **GitHub Pages**, Vercel, Netlify o Cloudflare Pages.
+*   **Modelo de Componentes Astro:** Estructura modular dividida en componentes reutilizables (`.astro`) que separan la lógica de estilos e interactividad del script principal de la página.
 
 ---
 
 ## ✨ Características Principales
 
-*   **🎬 Intro de Máscara de Scroll Cinemática:** Animación fluida de zoom al hacer scroll sobre el logotipo oficial de GTA VI usando GSAP ScrollTrigger, revelando el contenido principal de forma ininterrumpida.
-*   **📻 Vice City Cassette Radio:** Reproductor de cassette clásico totalmente interactivo con control de volumen, sintonización de emisoras reales (Synthwave, Funk/Soul, Heavy Rock) y ecualizador animado.
-*   **📱 Leonida Social Club (Parodia de TikTok):** Sección interactiva que emula posts de video virales en vertical. Incluye animación interactiva de reacciones (corazones SVG neon que flotan y se desvanecen) y contador dinámico de likes.
-*   **👥 Galería de Protagonistas:** Fichas interactivas para Lucía y Jason con efectos de iluminación personalizados en hover y revelación secuencial (staggered entries).
-*   **🖼️ Galería de Capturas Oficiales:** Mosaico de capturas del juego con visualizador lightbox integrado para ampliar imágenes en pantalla completa.
-*   **⏱️ Cuenta Atrás de Lanzamiento:** Contador en tiempo real para el estreno en consolas de nueva generación (PlayStation 5 y Xbox Series X|S).
-*   **📬 Registro al Social Club:** Formulario de suscripción interactivo con validación de estado.
+*   **🎬 Intro de Máscara Cinemática (GSAP):** Una transición fluida en la que el logotipo de GTA VI se amplía mediante scroll hasta revelar el contenido de la web sin saltos visuales.
+*   **📻 Vice City Cassette Radio:** Reproductor vintage interactivo con selección de estaciones reales (Synthwave, Funk, Rock), control de volumen por deslizador y ecualizador animado que responde al estado del audio.
+*   **📱 Leonida Social Club:** Simulación de una red social móvil (tipo TikTok/Reels) que incluye una animación interactiva donde flotan eclosiones de corazones SVG neón con efecto de desenfoque al hacer clic.
+*   **👥 Fichas de Lucía & Jason:** Perfiles detallados de los protagonistas del videojuego con sombras dinámicas en hover y animaciones staggered.
+*   **🖼️ Galería Lightbox:** Mosaico fluido de capturas oficiales con ventana modal integrada y cierre optimizado al dar clic fuera de los límites.
+*   **⏱️ Contador de Lanzamiento:** Cronómetro de cuenta atrás en tiempo real optimizado mediante JavaScript.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🚀 Instalación y Uso Local
 
-*   [Astro](https://astro.build/) — Framework web ultra veloz para sitios enfocados en contenido.
-*   [GSAP & ScrollTrigger](https://gsap.com/) — Librería de animación estándar de la industria para transiciones ultra fluidas al hacer scroll.
-*   [Tailwind CSS](https://tailwindcss.com/) — Estilos modernos y responsivos basados en utilidades.
-*   [TypeScript](https://www.typescriptlang.org/) — Tipado estático y robusto para las interacciones del reproductor y efectos de me gusta.
+Para ejecutar este proyecto localmente en tu máquina, sigue estos pasos:
 
----
-
-## 🚀 Estructura de Carpetas
-
-```text
-/
-├── public/
-│   ├── fonts/           # Fuentes oficiales tipográficas de GTA
-│   └── logo-stack.svg   # Vector para la máscara de scroll
-├── src/
-│   ├── assets/          # Imágenes de fondo, retratos e iconos vectoriales
-│   ├── components/      # Componentes modulares y reutilizables en Astro
-│   │   ├── Countdown.astro
-│   │   ├── Footer.astro
-│   │   ├── Gallery.astro
-│   │   ├── HeroMask.astro
-│   │   ├── Leonida.astro
-│   │   ├── Navbar.astro
-│   │   ├── Protagonists.astro
-│   │   ├── RadioPlayer.astro
-│   │   ├── SocialFeed.astro
-│   │   └── TrailerModal.astro
-│   ├── layouts/
-│   │   └── Layout.astro # Plantilla global, fuentes y estilos neón
-│   └── pages/
-│       └── index.astro  # Página de entrada principal
-└── package.json
-```
-
----
-
-## 💻 Instalación y Desarrollo
-
-Sigue estos sencillos pasos para instalar y ejecutar el proyecto en tu entorno local:
-
-1. **Clona este repositorio:**
+1. **Clona el repositorio:**
    ```bash
-   git clone https://github.com/tu-usuario/nombre-del-repo.git
+   git clone https://github.com/ByChokeYT/gta-vi-landing-experience.git
    ```
 
-2. **Instala las dependencias:**
+2. **Accede a la carpeta del proyecto:**
+   ```bash
+   cd gta-vi-landing-experience
+   ```
+
+3. **Instala las dependencias necesarias:**
    ```bash
    npm install
    ```
 
-3. **Inicia el servidor de desarrollo:**
+4. **Inicia el servidor local de desarrollo:**
    ```bash
    npm run dev
    ```
-   El sitio estará disponible en: [http://localhost:4321/](http://localhost:4321/)
+   Abre [http://localhost:4321](http://localhost:4321) en tu navegador para ver la experiencia.
 
-4. **Compila para producción:**
+5. **Compila para producción (Genera la carpeta `/dist` estática):**
    ```bash
    npm run build
    ```
 
 ---
 
-## 📜 Licencia
+## 📜 Créditos y Derechos de Autor
 
-Este es un proyecto tributo desarrollado con fines exclusivamente académicos y demostrativos. Todas las marcas comerciales, logotipos, música e imágenes pertenecen a **Rockstar Games, Inc.** y **Take-Two Interactive Software**.
+Este proyecto ha sido desarrollado únicamente para fines educativos, de portfolio y aprendizaje técnico. Todos los materiales de audio, imágenes de marca, nombres y logotipos mostrados pertenecen a **Rockstar Games** y **Take-Two Interactive**.
