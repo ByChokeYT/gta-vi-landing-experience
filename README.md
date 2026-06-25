@@ -1,6 +1,6 @@
 # 🌴 gta-vi-landing-experience
 
-![gta-vi-landing-experience Preview](./public/preview.png)
+![gta-vi-landing-experience Preview](./public/preview.jpg)
 
 Una landing page interactiva y de alto rendimiento que actúa como tributo a **Grand Theft Auto VI**, desarrollada usando **Astro 5**, **Tailwind CSS v4** y **GSAP (ScrollTrigger)**. El sitio traslada la vibrante atmósfera costera y de luces de neón del estado de Leonida y Vice City directamente al navegador.
 
