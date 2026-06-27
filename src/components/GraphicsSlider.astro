@@ -1,0 +1,144 @@
+---
+import DayImg from "@/assets/vice-city-scenery.png"
+import NightImg from "@/assets/vice-city-night.png"
+---
+
+<section id="comparador-graficos" class="scroll-mt-28 py-16 relative z-10">
+  <div class="text-center max-w-2xl mx-auto space-y-4 mb-12 reveal-on-scroll">
+    <span class="text-xs font-bold tracking-widest text-orange-500 uppercase bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">
+      Fidelidad Gráfica
+    </span>
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">RAGE ENGINE NEXT-GEN</h2>
+    <p class="text-zinc-400 font-narrow text-base md:text-lg">
+      Desliza el control para comparar el ciclo de iluminación dinámica del motor de juego en Ocean Drive entre el atardecer y la noche.
+    </p>
+  </div>
+
+  <!-- Comparison Container -->
+  <div class="max-w-4xl mx-auto bg-zinc-950/60 border border-zinc-900 rounded-[32px] p-4 md:p-6 backdrop-blur-md reveal-section">
+    
+    <div 
+      id="image-slider-container"
+      class="relative aspect-[16/9] w-full rounded-2xl overflow-hidden select-none border border-zinc-800"
+      style="--slider-pos: 50%;"
+    >
+      <!-- Background Image (Nighttime - Bottom Layer) -->
+      <img 
+        src={NightImg.src} 
+        alt="Vice City Night" 
+        class="absolute inset-0 w-full h-full object-cover pointer-events-none"
+      />
+      <div class="absolute bottom-6 right-8 z-10 bg-zinc-950/80 backdrop-blur-sm border border-zinc-800 text-zinc-300 text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">
+        Noche
+      </div>
+
+      <!-- Foreground Image (Daytime - Top Layer) -->
+      <div 
+        class="absolute inset-y-0 left-0 overflow-hidden pointer-events-none"
+        style="width: var(--slider-pos);"
+      >
+        <img 
+          src={DayImg.src} 
+          alt="Vice City Day" 
+          class="absolute inset-y-0 left-0 w-[840px] md:w-[920px] max-w-none h-full object-cover"
+          id="slider-foreground-image"
+        />
+      </div>
+      <div 
+        class="absolute bottom-6 left-8 z-10 bg-pink-500/90 backdrop-blur-sm border border-pink-400/20 text-white text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest transition-opacity duration-300"
+        style="opacity: calc((var(--slider-pos-num, 50) - 15) / 10);"
+      >
+        Atardecer
+      </div>
+
+      <!-- Slider Handle Separator Line -->
+      <div 
+        class="absolute inset-y-0 w-1 bg-white/80 cursor-col-resize z-20 pointer-events-none shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+        style="left: var(--slider-pos);"
+      >
+        <!-- Circular Handle Icon -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-zinc-950 border-2 border-white rounded-full flex items-center justify-center shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l-4 4 4 4m8 0l4-4-4-4" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Transparent Native Range Input (Top Layer capturing gestures) -->
+      <input 
+        type="range" 
+        min="0" 
+        max="100" 
+        value="50" 
+        id="graphics-range-input"
+        class="absolute inset-0 w-full h-full opacity-0 cursor-col-resize z-30"
+      />
+    </div>
+
+    <!-- Features Info List -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 border-t border-zinc-900 pt-6 text-center sm:text-left">
+      <div class="space-y-1.5">
+        <span class="text-xs font-bold text-pink-500 uppercase tracking-widest">Ray Tracing Global</span>
+        <p class="text-zinc-400 font-narrow text-sm leading-relaxed">
+          Reflejos e iluminación hiperrealistas que rebotan dinámicamente según la hora del día.
+        </p>
+      </div>
+      <div class="space-y-1.5">
+        <span class="text-xs font-bold text-orange-500 uppercase tracking-widest">Sombras Volumétricas</span>
+        <p class="text-zinc-400 font-narrow text-sm leading-relaxed">
+          La niebla urbana y las luces de los neones proyectan haces volumétricos inmersivos en la noche.
+        </p>
+      </div>
+      <div class="space-y-1.5">
+        <span class="text-xs font-bold text-zinc-300 uppercase tracking-widest">Fidelidad 4K UHD</span>
+        <p class="text-zinc-400 font-narrow text-sm leading-relaxed">
+          Texturas ultra detalladas y soporte de reconstrucción por IA para consolas de nueva generación.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom slider styles to handle touch events smoothly */
+  #graphics-range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 100%;
+  }
+  #graphics-range-input::-moz-range-thumb {
+    width: 40px;
+    height: 100%;
+  }
+</style>
+
+<script>
+  const container = document.getElementById("image-slider-container");
+  const input = document.getElementById("graphics-range-input") as HTMLInputElement;
+  const fgImg = document.getElementById("slider-foreground-image");
+
+  function updateWidth() {
+    if (!container || !input) return;
+    const value = input.value;
+    container.style.setProperty("--slider-pos", `${value}%`);
+    container.style.setProperty("--slider-pos-num", `${value}`);
+  }
+
+  // Adjust foreground image absolute width to container size on resize
+  function syncImageDimensions() {
+    if (!container || !fgImg) return;
+    const containerWidth = container.clientWidth;
+    (fgImg as HTMLElement).style.width = `${containerWidth}px`;
+  }
+
+  input?.addEventListener("input", updateWidth);
+  input?.addEventListener("change", updateWidth);
+
+  // Sync size on load and window resize
+  window.addEventListener("resize", syncImageDimensions);
+  syncImageDimensions();
+  
+  // Also run on DOM content loaded or immediate timeout to ensure layout is ready
+  setTimeout(syncImageDimensions, 100);
+</script>

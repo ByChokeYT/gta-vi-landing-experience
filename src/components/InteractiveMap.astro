@@ -1,0 +1,486 @@
+---
+import ViceCityImg from "@/assets/vice-city-scenery.png"
+import SwampsImg from "@/assets/leonida-swamps.png"
+import KeysImg from "@/assets/leonida-keys.png"
+---
+
+<section id="mapa-leonida" class="scroll-mt-28 py-16 relative z-10">
+  <div class="text-center max-w-2xl mx-auto space-y-4 mb-12 reveal-on-scroll">
+    <span class="text-xs font-bold tracking-widest text-pink-500 uppercase bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">
+      Explora la Región
+    </span>
+    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">EL ESTADO DE LEONIDA</h2>
+    <p class="text-zinc-400 font-narrow text-base md:text-lg">
+      Pasa el cursor por las distintas áreas para sintonizar su ambiente y descubrir los lugares clave que definirán la próxima generación de mundo abierto.
+    </p>
+  </div>
+
+  <!-- Interactive Map Container Card -->
+  <div class="max-w-5xl mx-auto bg-zinc-950/60 border border-zinc-900 rounded-[32px] p-6 md:p-8 backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal-section">
+    
+    <!-- Left Column: SVG Map -->
+    <div class="lg:col-span-7 flex justify-center items-center relative overflow-hidden rounded-2xl bg-zinc-950 border border-zinc-900/60 p-4 min-h-[300px] md:min-h-[400px]">
+      
+      <!-- Tech Grid background overlay -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-60"></div>
+      <div class="absolute top-0 right-0 p-3 text-[10px] font-mono text-zinc-500 tracking-widest pointer-events-none uppercase">
+        Leonida GPS // Area Scanner
+      </div>
+
+      <!-- SVG Map of Leonida -->
+      <svg viewBox="0 0 500 400" class="w-full max-w-[450px] relative z-10 select-none">
+        <defs>
+          <!-- Neon glow filters -->
+          <filter id="glow-pink" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="glow-emerald" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="glow-orange" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur stdDeviation="6" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Region 1: Grasslands Swamps (West/Center) -->
+        <path
+          d="M 40,80 C 120,60 170,120 180,180 C 190,230 110,280 80,300 C 50,290 30,220 30,170 C 30,120 35,90 40,80 Z"
+          class="map-region fill-zinc-900/60 stroke-emerald-500/20 hover:stroke-emerald-400 hover:fill-emerald-950/20 transition-all duration-300 cursor-pointer stroke-2"
+          data-region="swamps"
+          filter="url(#glow-emerald)"
+        />
+
+        <!-- Region 2: Vice City (East Shore) -->
+        <path
+          d="M 280,100 C 380,80 470,110 460,190 C 450,260 410,310 330,330 C 290,290 260,250 250,190 C 245,150 260,120 280,100 Z"
+          class="map-region fill-zinc-900/60 stroke-pink-500/20 hover:stroke-pink-400 hover:fill-pink-950/20 transition-all duration-300 cursor-pointer stroke-2"
+          data-region="vice-city"
+          filter="url(#glow-pink)"
+        />
+
+        <!-- Region 3: Leonida Keys (South Chain) -->
+        <path
+          d="M 120,330 C 180,315 250,335 290,340 C 250,360 210,375 160,370 C 140,365 125,345 120,330 Z"
+          class="map-region fill-zinc-900/60 stroke-orange-500/20 hover:stroke-orange-400 hover:fill-orange-950/20 transition-all duration-300 cursor-pointer stroke-2"
+          data-region="keys"
+          filter="url(#glow-orange)"
+        />
+
+        <!-- Connecting Lines/Roads for detailed sci-fi UI look -->
+        <path d="M 110,180 Q 230,220 360,210" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4" stroke-width="1.5" />
+        <path d="M 130,260 Q 150,320 180,345" fill="none" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4,4" stroke-width="1.5" />
+
+        <!-- Region Pins -->
+        <!-- Swamps Pin -->
+        <g class="map-pin cursor-pointer" data-region="swamps" transform="translate(100, 180)">
+          <circle r="12" class="fill-emerald-500/20 animate-ping" />
+          <circle r="5" class="fill-emerald-500 stroke-zinc-950 stroke-2" />
+        </g>
+
+        <!-- Vice City Pin -->
+        <g class="map-pin cursor-pointer" data-region="vice-city" transform="translate(360, 210)">
+          <circle r="12" class="fill-pink-500/20 animate-ping" />
+          <circle r="5" class="fill-pink-500 stroke-zinc-950 stroke-2" />
+        </g>
+
+        <!-- Keys Pin -->
+        <g class="map-pin cursor-pointer" data-region="keys" transform="translate(180, 345)">
+          <circle r="12" class="fill-orange-500/20 animate-ping" />
+          <circle r="5" class="fill-orange-500 stroke-zinc-950 stroke-2" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Right Column: Details Card -->
+    <div class="lg:col-span-5 flex flex-col justify-between min-h-[380px] space-y-6 relative">
+      
+      <!-- Info Panel (Vice City Active by Default) -->
+      <div id="region-info" class="space-y-6 transition-all duration-300">
+        
+        <!-- Region Image Wrapper with Neon border -->
+        <div class="aspect-[16/9] w-full rounded-2xl overflow-hidden border border-zinc-800 relative group">
+          <img 
+            id="region-image" 
+            src={ViceCityImg.src} 
+            alt="Vice City Scenery" 
+            class="w-full h-full object-cover transition-transform duration-700 scale-100"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent"></div>
+          
+          <!-- Neon Accent indicator top right -->
+          <div 
+            id="region-status"
+            class="absolute top-4 right-4 bg-pink-500/10 border border-pink-500/20 text-pink-400 text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider transition-colors duration-300"
+          >
+            Sintonizado
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="flex justify-between items-center">
+            <h3 id="region-title" class="text-2xl font-extrabold tracking-wide text-white">VICE CITY</h3>
+            <span id="region-weather" class="text-xs font-semibold text-zinc-400 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded">
+              ☀ 31°C / Humedad 82%
+            </span>
+          </div>
+          
+          <p id="region-description" class="text-zinc-300 text-sm font-narrow leading-relaxed">
+            La joya de la corona del estado de Leonida. Con sus playas kilométricas cubiertas de palmeras, rascacielos iluminados con luces de neón y una vida nocturna salvaje y criminal, Vice City es el epicentro del lujo, la moda y las oportunidades en la costa este de los Estados Unidos.
+          </p>
+        </div>
+
+        <!-- Hotspots list -->
+        <div class="space-y-2">
+          <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Puntos de Interés:</span>
+          <div id="region-hotspots" class="flex flex-wrap gap-2 text-xs font-semibold">
+            <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800/80 text-zinc-300">Ocean Drive</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800/80 text-zinc-300">Vice Beach</span>
+            <span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800/80 text-zinc-300">Downtown</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live audio visualizer bar to show when ambient sfx is playing -->
+      <div class="flex items-center gap-3 bg-zinc-900/40 border border-zinc-900 rounded-xl p-3">
+        <div class="flex gap-1 items-end h-4 w-6">
+          <div class="w-1 bg-pink-500 rounded-full visualizer-bar bar-1 animate-pulse"></div>
+          <div class="w-1 bg-pink-500 rounded-full visualizer-bar bar-2 animate-pulse"></div>
+          <div class="w-1 bg-pink-500 rounded-full visualizer-bar bar-3 animate-pulse"></div>
+          <div class="w-1 bg-pink-500 rounded-full visualizer-bar bar-4 animate-pulse"></div>
+        </div>
+        <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">
+          Ambiente Sintetizado Activado
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Audio visualizer animations */
+  .visualizer-bar {
+    height: 100%;
+    animation-duration: 0.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform-origin: bottom;
+  }
+  .bar-1 { animation-name: bar1; animation-delay: 0.1s; }
+  .bar-2 { animation-name: bar2; animation-delay: 0.3s; }
+  .bar-3 { animation-name: bar3; animation-delay: 0.2s; }
+  .bar-4 { animation-name: bar4; animation-delay: 0.4s; }
+
+  @keyframes bar1 { 0% { transform: scaleY(0.2); } 100% { transform: scaleY(1.0); } }
+  @keyframes bar2 { 0% { transform: scaleY(0.1); } 100% { transform: scaleY(0.8); } }
+  @keyframes bar3 { 0% { transform: scaleY(0.3); } 100% { transform: scaleY(0.9); } }
+  @keyframes bar4 { 0% { transform: scaleY(0.15); } 100% { transform: scaleY(0.7); } }
+
+  /* Map shape transitions */
+  .map-region {
+    transition: fill 0.4s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
+
+<script>
+  import ViceCityImg from "@/assets/vice-city-scenery.png"
+  import SwampsImg from "@/assets/leonida-swamps.png"
+  import KeysImg from "@/assets/leonida-keys.png"
+
+  // Region Data
+  interface Region {
+    title: string;
+    description: string;
+    weather: string;
+    image: string;
+    hotspots: string[];
+    colorClass: string;
+    accentClass: string;
+    ambient: "ocean" | "swamp" | "keys";
+  }
+
+  const regions: Record<string, Region> = {
+    "vice-city": {
+      title: "VICE CITY",
+      description: "La joya de la corona del estado de Leonida. Con sus playas kilométricas cubiertas de palmeras, rascacielos iluminados con luces de neón y una vida nocturna salvaje y criminal, Vice City es el epicentro del lujo, la moda y las oportunidades en la costa este.",
+      weather: "☀ 31°C / Humedad 82%",
+      image: ViceCityImg.src,
+      hotspots: ["Ocean Drive", "Vice Beach", "Downtown"],
+      colorClass: "text-pink-500",
+      accentClass: "bg-pink-500/10 border-pink-500/20 text-pink-400",
+      ambient: "ocean"
+    },
+    swamps: {
+      title: "GRASSLANDS SWAMPS",
+      description: "El lado salvaje e indómito de Leonida. Kilómetros de pantanos lodosos y manglares habitados por caimanes gigantes y entusiastas del motor fuera de borda. Es el refugio perfecto para forajidos y el escenario ideal para persecuciones en lanchas rápidas.",
+      weather: "⛈ 29°C / Humedad 95%",
+      image: SwampsImg.src,
+      hotspots: ["The Everglades", "Trailer Park", "Mud Club"],
+      colorClass: "text-emerald-500",
+      accentClass: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
+      ambient: "swamp"
+    },
+    keys: {
+      title: "LEONIDA KEYS",
+      description: "Una cadena paradisíaca de islas tropicales conectadas por puentes monumentales que flotan sobre aguas turquesas. Aunque parezca un retiro vacacional de relax absoluto, bajo la superficie corre un denso tráfico marítimo ilegal de mercancías contrabando.",
+      weather: "☁ 28°C / Humedad 75%",
+      image: KeysImg.src,
+      hotspots: ["Aero keys", "Gator Keys", "Overseas Bridge"],
+      colorClass: "text-orange-500",
+      accentClass: "bg-orange-500/10 border-orange-500/20 text-orange-400",
+      ambient: "keys"
+    }
+  };
+
+  // DOM Elements
+  const regionElements = document.querySelectorAll(".map-region");
+  const pinElements = document.querySelectorAll(".map-pin");
+  
+  const imgElement = document.getElementById("region-image") as HTMLImageElement;
+  const titleElement = document.getElementById("region-title");
+  const descElement = document.getElementById("region-description");
+  const weatherElement = document.getElementById("region-weather");
+  const hotspotsElement = document.getElementById("region-hotspots");
+  const statusElement = document.getElementById("region-status");
+  const visualizerBars = document.querySelectorAll(".visualizer-bar");
+
+  // Web Audio Context Variables
+  let ambientContext: AudioContext | null = null;
+  let ambientGain: GainNode | null = null;
+  let swampInterval: number | null = null;
+  let currentAmbientType: string | null = null;
+
+  function stopAmbient() {
+    if (swampInterval) {
+      clearInterval(swampInterval);
+      swampInterval = null;
+    }
+    if (ambientGain && ambientContext) {
+      const now = ambientContext.currentTime;
+      try {
+        ambientGain.gain.cancelScheduledValues(now);
+        ambientGain.gain.setValueAtTime(ambientGain.gain.value, now);
+        ambientGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.3);
+      } catch (err) {
+        // Safe check
+      }
+      const ctxToClose = ambientContext;
+      setTimeout(() => {
+        if (ctxToClose && ctxToClose.state !== "closed") {
+          ctxToClose.close();
+        }
+      }, 350);
+      ambientGain = null;
+      ambientContext = null;
+    }
+    currentAmbientType = null;
+    visualizerBars.forEach(bar => bar.classList.remove("animate-pulse"));
+  }
+
+  function playOceanWaves() {
+    if (currentAmbientType === "ocean") return;
+    stopAmbient();
+    currentAmbientType = "ocean";
+    visualizerBars.forEach(bar => bar.classList.add("animate-pulse"));
+
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      ambientContext = new AudioCtx();
+      
+      const bufferSize = ambientContext.sampleRate * 2.5;
+      const buffer = ambientContext.createBuffer(1, bufferSize, ambientContext.sampleRate);
+      const data = buffer.getChannelData(0);
+      
+      // Generate Pinkish noise filter logic for sea rumble
+      let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        b3 = 0.86650 * b3 + white * 0.3104856;
+        b4 = 0.55000 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.0168980;
+        data[i] = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
+        data[i] *= 0.09;
+        b6 = white * 0.115926;
+      }
+      
+      const noiseSource = ambientContext.createBufferSource();
+      noiseSource.buffer = buffer;
+      noiseSource.loop = true;
+      
+      const filter = ambientContext.createBiquadFilter();
+      filter.type = "lowpass";
+      filter.frequency.setValueAtTime(350, ambientContext.currentTime);
+      
+      ambientGain = ambientContext.createGain();
+      ambientGain.gain.setValueAtTime(0, ambientContext.currentTime);
+      ambientGain.gain.linearRampToValueAtTime(0.06, ambientContext.currentTime + 0.4);
+      
+      // Add a slow LFO to simulate waves swelling
+      const lfo = ambientContext.createOscillator();
+      lfo.frequency.value = 0.18; // 0.18Hz (approx. 5s per wave swell)
+      const lfoGain = ambientContext.createGain();
+      lfoGain.gain.value = 180;
+      
+      lfo.connect(lfoGain);
+      lfoGain.connect(filter.frequency);
+      
+      noiseSource.connect(filter);
+      filter.connect(ambientGain);
+      ambientGain.connect(ambientContext.destination);
+      
+      lfo.start();
+      noiseSource.start();
+    } catch (e) {
+      console.warn("Ambient Web Audio error", e);
+    }
+  }
+
+  function playSwampCrickets() {
+    if (currentAmbientType === "swamp") return;
+    stopAmbient();
+    currentAmbientType = "swamp";
+    visualizerBars.forEach(bar => bar.classList.add("animate-pulse"));
+
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      ambientContext = new AudioCtx();
+      
+      ambientGain = ambientContext.createGain();
+      ambientGain.gain.setValueAtTime(0.04, ambientContext.currentTime);
+      ambientGain.connect(ambientContext.destination);
+      
+      // Chirping pulse sequence generator
+      const triggerChirpGroup = () => {
+        if (!ambientContext || ambientContext.state === "closed") return;
+        const now = ambientContext.currentTime;
+        const pulses = 3 + Math.floor(Math.random() * 2);
+        const pitch = 3600 + Math.random() * 300;
+        
+        for (let i = 0; i < pulses; i++) {
+          const startTime = now + i * 0.055;
+          const duration = 0.03;
+          
+          const osc = ambientContext.createOscillator();
+          const gain = ambientContext.createGain();
+          
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(pitch, startTime);
+          osc.frequency.exponentialRampToValueAtTime(pitch - 200, startTime + duration);
+          
+          gain.gain.setValueAtTime(0, startTime);
+          gain.gain.linearRampToValueAtTime(0.015, startTime + 0.004);
+          gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+          
+          osc.connect(gain);
+          gain.connect(ambientGain!);
+          
+          osc.start(startTime);
+          osc.stop(startTime + duration + 0.02);
+        }
+      };
+      
+      triggerChirpGroup();
+      swampInterval = window.setInterval(triggerChirpGroup, 1000);
+    } catch (e) {
+      console.warn("Swamp Web Audio error", e);
+    }
+  }
+
+  // Handle active region info updates
+  function updateRegionInfo(regionId: string) {
+    const region = regions[regionId];
+    if (!region) return;
+
+    // Transition effect for image
+    if (imgElement) {
+      imgElement.classList.add("scale-105", "blur-sm");
+      setTimeout(() => {
+        imgElement.src = region.image;
+        imgElement.alt = region.title;
+        imgElement.classList.remove("scale-105", "blur-sm");
+      }, 250);
+    }
+
+    if (titleElement) titleElement.textContent = region.title;
+    if (descElement) descElement.textContent = region.description;
+    if (weatherElement) weatherElement.textContent = region.weather;
+
+    // Hotspots rendering
+    if (hotspotsElement) {
+      hotspotsElement.innerHTML = region.hotspots
+        .map(h => `<span class="px-2.5 py-1 rounded bg-zinc-900 border border-zinc-800/80 text-zinc-300">${h}</span>`)
+        .join("");
+    }
+
+    // Status label colors
+    if (statusElement) {
+      // Remove previous classes
+      statusElement.className = `absolute top-4 right-4 text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider transition-colors duration-300 ${region.accentClass}`;
+    }
+
+    // Visualizer color change
+    const barColors = {
+      "vice-city": "bg-pink-500",
+      "swamps": "bg-emerald-500",
+      "keys": "bg-orange-500"
+    };
+    visualizerBars.forEach(bar => {
+      bar.className = `w-1 rounded-full visualizer-bar ${bar.classList.contains("bar-1") ? "bar-1" : ""} ${bar.classList.contains("bar-2") ? "bar-2" : ""} ${bar.classList.contains("bar-3") ? "bar-3" : ""} ${bar.classList.contains("bar-4") ? "bar-4" : ""} ${barColors[regionId as keyof typeof barColors] || "bg-pink-500"}`;
+    });
+
+    // Play synthesized ambient noise
+    if (region.ambient === "ocean" || region.ambient === "keys") {
+      playOceanWaves();
+    } else if (region.ambient === "swamp") {
+      playSwampCrickets();
+    }
+  }
+
+  // Wire events
+  regionElements.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      const regionId = el.getAttribute("data-region") || "";
+      updateRegionInfo(regionId);
+    });
+  });
+
+  pinElements.forEach(pin => {
+    pin.addEventListener("mouseenter", () => {
+      const regionId = pin.getAttribute("data-region") || "";
+      // Highlight matching map region path
+      const path = document.querySelector(`.map-region[data-region="${regionId}"]`);
+      if (path) {
+        path.classList.add("fill-pink-950/20", "stroke-pink-400");
+      }
+      updateRegionInfo(regionId);
+    });
+
+    pin.addEventListener("mouseleave", () => {
+      const regionId = pin.getAttribute("data-region") || "";
+      const path = document.querySelector(`.map-region[data-region="${regionId}"]`);
+      if (path) {
+        path.classList.remove("fill-pink-950/20", "stroke-pink-400");
+      }
+    });
+  });
+
+  // Stop ambient audio when leaving map section completely
+  const mapSection = document.getElementById("mapa-leonida");
+  mapSection?.addEventListener("mouseleave", () => {
+    stopAmbient();
+  });
+</script>

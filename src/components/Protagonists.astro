@@ -4,7 +4,10 @@ import JasonPortrait from "@/assets/jason-portrait.png"
 ---
 
 <!-- Section: Protagonists -->
-<section id="personajes" class="scroll-mt-28 space-y-16 py-12 relative z-10">
+<section id="personajes" class="scroll-mt-28 space-y-12 py-12 relative z-10" data-active="lucia">
+  <!-- Glowing backdrops that transition based on active character -->
+  <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none transition-all duration-700 bg-pink-600/10 active-glow"></div>
+
   <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll">
     <span class="text-xs font-bold tracking-widest text-orange-500 uppercase bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">
       Personajes Principales
@@ -14,15 +17,42 @@ import JasonPortrait from "@/assets/jason-portrait.png"
       Una historia de confianza, traición y crimen en el corazón de Leonida. Controla a la primera protagonista femenina de la franquicia y a su compañero de crímenes.
     </p>
   </div>
+
+  <!-- Switcher Toggle with Sliding Background -->
+  <div class="relative flex justify-between items-center w-[260px] mx-auto p-1 bg-zinc-950/80 border border-zinc-800 rounded-full select-none z-20 reveal-on-scroll">
+    <!-- Active Slider Indicator -->
+    <div
+      id="character-slider-bg"
+      class="absolute top-1 bottom-1 left-1 w-[calc(50%-2px)] bg-gradient-to-r from-pink-500 to-pink-600 rounded-full transition-all duration-300 transform translate-x-0"
+    ></div>
+    
+    <button
+      id="switch-lucia"
+      class="character-switch-btn relative z-10 flex-1 py-2 text-xs font-extrabold uppercase tracking-widest text-white transition-colors cursor-pointer text-center"
+      data-character="lucia"
+    >
+      Lucia
+    </button>
+    <button
+      id="switch-jason"
+      class="character-switch-btn relative z-10 flex-1 py-2 text-xs font-extrabold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors cursor-pointer text-center"
+      data-character="jason"
+    >
+      Jason
+    </button>
+  </div>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 reveal-section">
     <!-- Lucia Card -->
-    <div class="protagonist-card group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 backdrop-blur-md hover:border-pink-500/30 transition-all duration-300 flex flex-col reveal-item cursor-default">
+    <div 
+      id="lucia-card" 
+      class="protagonist-card group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 backdrop-blur-md hover:border-pink-500/30 transition-all duration-500 flex flex-col reveal-item cursor-default z-20"
+    >
       <!-- Glare Effect Overlay -->
       <div class="glare absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300 z-30"></div>
       
-      <!-- Pink Glow backdrop -->
-      <div class="absolute -top-40 -left-40 size-80 rounded-full bg-pink-600/10 blur-3xl pointer-events-none group-hover:bg-pink-600/20 transition-all duration-700"></div>
+      <!-- Pink Card Glow -->
+      <div class="absolute -top-40 -left-40 size-80 rounded-full bg-pink-600/5 blur-3xl pointer-events-none group-hover:bg-pink-600/15 transition-all duration-700"></div>
       
       <div class="aspect-[16/10] w-full overflow-hidden relative">
         <img src={LuciaPortrait.src} alt="Lucia" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700" />
@@ -45,12 +75,15 @@ import JasonPortrait from "@/assets/jason-portrait.png"
     </div>
     
     <!-- Jason Card -->
-    <div class="protagonist-card group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 backdrop-blur-md hover:border-orange-500/30 transition-all duration-300 flex flex-col reveal-item cursor-default">
+    <div 
+      id="jason-card" 
+      class="protagonist-card group relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950/60 backdrop-blur-md hover:border-orange-500/30 transition-all duration-500 flex flex-col reveal-item cursor-default opacity-30 scale-98 pointer-events-none blur-[1px] hidden-mobile"
+    >
       <!-- Glare Effect Overlay -->
       <div class="glare absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-300 z-30"></div>
       
-      <!-- Orange Glow backdrop -->
-      <div class="absolute -top-40 -right-40 size-80 rounded-full bg-orange-600/10 blur-3xl pointer-events-none group-hover:bg-orange-600/20 transition-all duration-700"></div>
+      <!-- Orange Card Glow -->
+      <div class="absolute -top-40 -right-40 size-80 rounded-full bg-orange-600/5 blur-3xl pointer-events-none group-hover:bg-orange-600/15 transition-all duration-700"></div>
       
       <div class="aspect-[16/10] w-full overflow-hidden relative">
         <img src={JasonPortrait.src} alt="Jason" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700" />
@@ -77,51 +110,117 @@ import JasonPortrait from "@/assets/jason-portrait.png"
 <style>
   .protagonist-card {
     transform-style: preserve-3d;
-    will-change: transform;
-    transition: transform 0.1s ease-out, border-color 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform, opacity, scale, filter;
+    transition: transform 0.2s ease-out, border-color 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease, filter 0.5s ease, scale 0.5s ease;
   }
   
-  .protagonist-card:hover {
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  .protagonist-card:hover:not(.pointer-events-none) {
+    box-shadow: 0 10px 35px -10px rgba(236, 72, 153, 0.1);
+  }
+
+  /* Active glow selector colors */
+  [data-active="lucia"] .active-glow {
+    background-color: rgba(236, 72, 153, 0.08);
+  }
+  [data-active="jason"] .active-glow {
+    background-color: rgba(249, 115, 22, 0.08);
+  }
+
+  @media (max-w: 768px) {
+    .hidden-mobile {
+      display: none !important;
+    }
   }
 </style>
 
 <script>
   const cards = document.querySelectorAll(".protagonist-card");
   
+  // Card 3D tilt effects
   cards.forEach(card => {
     const glare = card.querySelector(".glare") as HTMLElement;
     
     card.addEventListener("mousemove", (e: any) => {
+      if (card.classList.contains("pointer-events-none")) return;
+
       const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left; // pos x inside card
-      const y = e.clientY - rect.top;  // pos y inside card
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
       
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      // Calculate rotation (max 7 degrees)
-      const rotateX = ((centerY - y) / centerY) * 7; 
-      const rotateY = ((x - centerX) / centerX) * 7;
+      const rotateX = ((centerY - y) / centerY) * 5; 
+      const rotateY = ((x - centerX) / centerX) * 5;
       
-      // Apply card transform
-      (card as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`;
+      (card as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
       
-      // Calculate glare movement
       const glareX = (x / rect.width) * 100;
       const glareY = (y / rect.height) * 100;
       if (glare) {
-        glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.08) 0%, transparent 65%)`;
+        glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.07) 0%, transparent 65%)`;
         glare.style.opacity = "1";
       }
     });
     
     card.addEventListener("mouseleave", () => {
-      // Revert transformation smoothly
       (card as HTMLElement).style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       if (glare) {
         glare.style.opacity = "0";
       }
+    });
+  });
+
+  // Dynamic Switcher Logic
+  const switchLucia = document.getElementById("switch-lucia");
+  const switchJason = document.getElementById("switch-jason");
+  const sliderBg = document.getElementById("character-slider-bg");
+  const switchBtns = document.querySelectorAll(".character-switch-btn");
+  
+  const luciaCard = document.getElementById("lucia-card");
+  const jasonCard = document.getElementById("jason-card");
+  const section = document.getElementById("personajes");
+  
+  function selectCharacter(char: string) {
+    if (char === "lucia") {
+      switchLucia?.classList.add("text-white");
+      switchLucia?.classList.remove("text-zinc-400");
+      switchJason?.classList.add("text-zinc-400");
+      switchJason?.classList.remove("text-white");
+      
+      sliderBg?.classList.remove("translate-x-[calc(100%-2px)]", "from-orange-500", "to-orange-600");
+      sliderBg?.classList.add("translate-x-0", "from-pink-500", "to-pink-600");
+      
+      luciaCard?.classList.remove("opacity-30", "scale-98", "pointer-events-none", "blur-[1px]", "hidden-mobile");
+      luciaCard?.classList.add("z-20");
+      
+      jasonCard?.classList.add("opacity-30", "scale-98", "pointer-events-none", "blur-[1px]", "hidden-mobile");
+      jasonCard?.classList.remove("z-20");
+      
+      section?.setAttribute("data-active", "lucia");
+    } else {
+      switchJason?.classList.add("text-white");
+      switchJason?.classList.remove("text-zinc-400");
+      switchLucia?.classList.add("text-zinc-400");
+      switchLucia?.classList.remove("text-white");
+      
+      sliderBg?.classList.remove("translate-x-0", "from-pink-500", "to-pink-600");
+      sliderBg?.classList.add("translate-x-[calc(100%-2px)]", "from-orange-500", "to-orange-600");
+      
+      jasonCard?.classList.remove("opacity-30", "scale-98", "pointer-events-none", "blur-[1px]", "hidden-mobile");
+      jasonCard?.classList.add("z-20");
+      
+      luciaCard?.classList.add("opacity-30", "scale-98", "pointer-events-none", "blur-[1px]", "hidden-mobile");
+      luciaCard?.classList.remove("z-20");
+      
+      section?.setAttribute("data-active", "jason");
+    }
+  }
+  
+  switchBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const char = btn.getAttribute("data-character") || "lucia";
+      selectCharacter(char);
     });
   });
 </script>

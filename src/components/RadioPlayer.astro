@@ -345,6 +345,54 @@
     if (miniActiveStation) miniActiveStation.innerText = shortLabel;
   }
 
+  // Web Audio API Analog Tape Hiss / Sintonization Noise Synthesizer
+  function playTapeHiss(callback: () => void) {
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioCtx) {
+        callback();
+        return;
+      }
+      const audioContext = new AudioCtx();
+      const bufferSize = audioContext.sampleRate * 0.45; // ~0.45s hiss
+      const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+      const data = buffer.getChannelData(0);
+      
+      // Fill the buffer with random noise values
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.random() * 2 - 1;
+      }
+      
+      const noiseSource = audioContext.createBufferSource();
+      noiseSource.buffer = buffer;
+      
+      // Warm analog cassette simulation using lowpass filter
+      const filter = audioContext.createBiquadFilter();
+      filter.type = "lowpass";
+      filter.frequency.value = 1400; // soft cassette rumble
+      
+      // Gain node for clean volume fade out
+      const gainNode = audioContext.createGain();
+      gainNode.gain.setValueAtTime(0.12, audioContext.currentTime); // volume
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+      
+      noiseSource.connect(filter);
+      filter.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      noiseSource.start();
+      
+      // Run callback and close AudioContext when finished
+      setTimeout(() => {
+        audioContext.close();
+        callback();
+      }, 400);
+    } catch (e) {
+      console.warn("Failed to play Web Audio static sfx", e);
+      callback();
+    }
+  }
+
   // Toggle play/pause
   function togglePlay() {
     if (!audio) return;
@@ -354,12 +402,16 @@
       isPlaying = false;
       updatePlayerUI();
     } else {
-      audio.play().then(() => {
-        isPlaying = true;
-        isMiniPlayerClosedManually = false; // Reset manual close state when hitting play
-        updatePlayerUI();
-      }).catch(err => {
-        console.log("Audio play blocked by browser policy. Interacted first.", err);
+      // Play static sfx first, then resume audio
+      playTapeHiss(() => {
+        if (!audio) return;
+        audio.play().then(() => {
+          isPlaying = true;
+          isMiniPlayerClosedManually = false; // Reset manual close state when hitting play
+          updatePlayerUI();
+        }).catch(err => {
+          console.log("Audio play blocked by browser policy. Interacted first.", err);
+        });
       });
     }
   }
