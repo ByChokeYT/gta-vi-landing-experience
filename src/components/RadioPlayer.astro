@@ -70,7 +70,7 @@
           class="station-btn active group px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-pink-500/30 text-left transition-all cursor-pointer"
           data-station="flash"
           data-label="FLASH FM - SYNTHWAVE"
-          data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+          data-url="/audio/flash.mp3"
         >
           <div class="text-[10px] text-pink-500 font-bold uppercase tracking-wider mb-0.5">Flash FM</div>
           <div class="text-xs font-bold text-zinc-300 group-[.active]:text-white">Pop Synth</div>
@@ -79,7 +79,7 @@
           class="station-btn group px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-purple-500/30 text-left transition-all cursor-pointer"
           data-station="fever"
           data-label="FEVER 105 - RETRO SOUL"
-          data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+          data-url="/audio/fever.mp3"
         >
           <div class="text-[10px] text-purple-400 font-bold uppercase tracking-wider mb-0.5">Fever 105</div>
           <div class="text-xs font-bold text-zinc-300 group-[.active]:text-white">Funk & Soul</div>
@@ -88,7 +88,7 @@
           class="station-btn group px-4 py-3 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900/80 hover:border-orange-500/30 text-left transition-all cursor-pointer"
           data-station="vrock"
           data-label="V-ROCK - HEAVY RHYTHMS"
-          data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+          data-url="/audio/vrock.mp3"
         >
           <div class="text-[10px] text-orange-400 font-bold uppercase tracking-wider mb-0.5">V-Rock</div>
           <div class="text-xs font-bold text-zinc-300 group-[.active]:text-white">Heavy Rock</div>
@@ -157,6 +157,61 @@
   </div>
 </section>
 
+<!-- Floating Mini Player -->
+<div
+  id="mini-radio-player"
+  class="fixed bottom-6 right-6 z-50 flex items-center gap-4 pl-4 pr-3 py-2.5 rounded-2xl border border-zinc-800 bg-zinc-950/95 backdrop-blur-md shadow-2xl transition-all duration-500 translate-y-12 opacity-0 pointer-events-none max-w-sm"
+>
+  <!-- Mini cassette graphic -->
+  <div id="mini-cassette" class="relative w-10 h-7 bg-zinc-900 border border-zinc-800 rounded-md flex items-center justify-between px-1 shadow-inner shrink-0">
+    <div id="mini-reel-left" class="size-2 rounded-full border border-zinc-700 bg-zinc-950 relative">
+      <div class="absolute inset-0 flex items-center justify-center rotate-0 mini-spoke">
+        <div class="w-full h-[0.5px] bg-zinc-700"></div>
+      </div>
+    </div>
+    <div class="w-2 h-[1px] bg-yellow-600/30"></div>
+    <div id="mini-reel-right" class="size-2 rounded-full border border-zinc-700 bg-zinc-950 relative">
+      <div class="absolute inset-0 flex items-center justify-center rotate-0 mini-spoke">
+        <div class="w-full h-[0.5px] bg-zinc-700"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="flex flex-col min-w-0 pr-1 select-none">
+    <span class="text-[8px] font-bold text-pink-500 uppercase tracking-widest leading-none mb-0.5">En Vivo</span>
+    <span id="mini-active-station" class="text-[10px] font-extrabold text-white truncate max-w-[120px] uppercase tracking-wide leading-none">Flash FM</span>
+  </div>
+
+  <!-- Controls -->
+  <div class="flex items-center gap-1.5 border-l border-zinc-900 pl-3">
+    <!-- Play/Pause -->
+    <button
+      id="mini-play-toggle"
+      class="size-8 rounded-full bg-white hover:bg-pink-100 text-black flex items-center justify-center cursor-pointer hover:scale-105 transition-all shadow"
+      aria-label="Reproducir/Pausar Radio"
+    >
+      <svg id="mini-play-icon" xmlns="http://www.w3.org/2000/svg" class="size-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+      <svg id="mini-pause-icon" xmlns="http://www.w3.org/2000/svg" class="size-4 hidden" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>
+    </button>
+
+    <!-- Close -->
+    <button
+      id="mini-close"
+      class="size-8 rounded-full border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:text-white flex items-center justify-center cursor-pointer hover:bg-zinc-800/50 transition-all"
+      aria-label="Cerrar reproductor"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</div>
+
 <style>
   /* Cassette Reel Rotate Animation */
   @keyframes spin-reel {
@@ -164,7 +219,8 @@
     100% { transform: rotate(360deg); }
   }
 
-  .spinning .reel-spoke {
+  .spinning .reel-spoke,
+  .spinning .mini-spoke {
     animation: spin-reel 4s linear infinite;
   }
 
@@ -180,6 +236,8 @@
   let audio: HTMLAudioElement | null = null;
   let isPlaying = false;
   let currentVolume = 0.8;
+  let isMainPlayerVisible = false;
+  let isMiniPlayerClosedManually = false;
   
   const playToggle = document.getElementById("radio-play-toggle");
   const playIcon = document.getElementById("radio-play-icon");
@@ -192,6 +250,15 @@
   const reelLeft = document.getElementById("reel-left");
   const reelRight = document.getElementById("reel-right");
   const stationButtons = document.querySelectorAll(".station-btn");
+
+  // Mini Player Elements
+  const miniPlayer = document.getElementById("mini-radio-player");
+  const miniPlayToggle = document.getElementById("mini-play-toggle");
+  const miniPlayIcon = document.getElementById("mini-play-icon");
+  const miniPauseIcon = document.getElementById("mini-pause-icon");
+  const miniActiveStation = document.getElementById("mini-active-station");
+  const miniClose = document.getElementById("mini-close");
+  const miniCassette = document.getElementById("mini-cassette");
 
   let visualizerInterval: any = null;
 
@@ -212,6 +279,72 @@
     initializeAudio(initialUrl);
   }
 
+  // IntersectionObserver to hide mini-player when main player is visible
+  const radioSection = document.getElementById("radio");
+  if (radioSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isMainPlayerVisible = entry.isIntersecting;
+        updatePlayerUI();
+      });
+    }, {
+      threshold: 0.15 // trigger when at least 15% of the section is visible
+    });
+    observer.observe(radioSection);
+  }
+
+  // Update both Main and Mini player UI states
+  function updatePlayerUI() {
+    if (isPlaying) {
+      // Main player UI
+      playIcon?.classList.add("hidden");
+      pauseIcon?.classList.remove("hidden");
+      reelLeft?.classList.add("spinning");
+      reelRight?.classList.add("spinning");
+      if (eqState) eqState.innerText = "ON";
+      startVisualizer();
+
+      // Mini player UI
+      miniPlayIcon?.classList.add("hidden");
+      miniPauseIcon?.classList.remove("hidden");
+      miniCassette?.classList.add("spinning");
+
+      // Show mini player only if main player is not visible AND user hasn't closed it manually
+      if (!isMainPlayerVisible && !isMiniPlayerClosedManually) {
+        miniPlayer?.classList.remove("opacity-0", "translate-y-12", "pointer-events-none");
+        miniPlayer?.classList.add("opacity-100", "translate-y-0", "pointer-events-auto");
+      } else {
+        miniPlayer?.classList.add("opacity-0", "translate-y-12", "pointer-events-none");
+        miniPlayer?.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+      }
+    } else {
+      // Main player UI
+      playIcon?.classList.remove("hidden");
+      pauseIcon?.classList.add("hidden");
+      reelLeft?.classList.remove("spinning");
+      reelRight?.classList.remove("spinning");
+      if (eqState) eqState.innerText = "OFF";
+      stopVisualizer();
+
+      // Mini player UI
+      miniPlayIcon?.classList.remove("hidden");
+      miniPauseIcon?.classList.add("hidden");
+      miniCassette?.classList.remove("spinning");
+
+      // Hide mini player when paused
+      miniPlayer?.classList.add("opacity-0", "translate-y-12", "pointer-events-none");
+      miniPlayer?.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+    }
+
+    // Sync station labels
+    const activeBtn = document.querySelector(".station-btn.active");
+    const stationLabel = activeBtn?.getAttribute("data-label") || "";
+    const shortLabel = activeBtn?.querySelector(".text-[10px]")?.textContent || "FLASH FM";
+    
+    if (activeStationLabel) activeStationLabel.innerText = stationLabel;
+    if (miniActiveStation) miniActiveStation.innerText = shortLabel;
+  }
+
   // Toggle play/pause
   function togglePlay() {
     if (!audio) return;
@@ -219,21 +352,12 @@
     if (isPlaying) {
       audio.pause();
       isPlaying = false;
-      playIcon?.classList.remove("hidden");
-      pauseIcon?.classList.add("hidden");
-      reelLeft?.classList.remove("spinning");
-      reelRight?.classList.remove("spinning");
-      if (eqState) eqState.innerText = "OFF";
-      stopVisualizer();
+      updatePlayerUI();
     } else {
       audio.play().then(() => {
         isPlaying = true;
-        playIcon?.classList.add("hidden");
-        pauseIcon?.classList.remove("hidden");
-        reelLeft?.classList.add("spinning");
-        reelRight?.classList.add("spinning");
-        if (eqState) eqState.innerText = "ON";
-        startVisualizer();
+        isMiniPlayerClosedManually = false; // Reset manual close state when hitting play
+        updatePlayerUI();
       }).catch(err => {
         console.log("Audio play blocked by browser policy. Interacted first.", err);
       });
@@ -241,6 +365,14 @@
   }
 
   playToggle?.addEventListener("click", togglePlay);
+  miniPlayToggle?.addEventListener("click", togglePlay);
+
+  // Mini player close click (hides mini-player manually, music keeps playing)
+  miniClose?.addEventListener("click", () => {
+    isMiniPlayerClosedManually = true;
+    miniPlayer?.classList.add("opacity-0", "translate-y-12", "pointer-events-none");
+    miniPlayer?.classList.remove("opacity-100", "translate-y-0", "pointer-events-auto");
+  });
 
   // Volume slider change
   volumeSlider?.addEventListener("input", (e) => {
@@ -258,10 +390,7 @@
       stationButtons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      // Update Labels
-      const label = btn.getAttribute("data-label") || "";
       const url = btn.getAttribute("data-url") || "";
-      if (activeStationLabel) activeStationLabel.innerText = label;
 
       // Re-initialize Audio and Auto Play if currently playing
       const wasPlaying = isPlaying;
@@ -270,6 +399,9 @@
       if (wasPlaying) {
         isPlaying = false; // reset state before play call
         togglePlay();
+      } else {
+        isMiniPlayerClosedManually = false; // Reset close state when switching station
+        updatePlayerUI();
       }
     });
   });

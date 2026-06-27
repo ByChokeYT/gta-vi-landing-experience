@@ -22,3 +22,54 @@
     <div id="video-container" class="w-full h-full"></div>
   </div>
 </div>
+
+<script>
+  // YouTube Trailer Video Modal Logic
+  const playButton = document.getElementById("hero-play-button");
+  const footerButton = document.getElementById("hero-footer");
+  const videoModal = document.getElementById("video-modal");
+  const closeModal = document.getElementById("close-modal");
+  const videoContainer = document.getElementById("video-container");
+
+  function openVideo() {
+    if (videoContainer && videoModal) {
+      // Clear existing content securely
+      videoContainer.textContent = "";
+
+      // Create iframe programmatically to completely prevent DOM-based XSS
+      const iframe = document.createElement("iframe");
+      iframe.className = "w-full h-full";
+      iframe.src = "https://www.youtube.com/embed/QdBZY2fkU-0?autoplay=1";
+      iframe.title = "Grand Theft Auto VI Trailer 1";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+      iframe.setAttribute("allowfullscreen", "true");
+      iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+      
+      // Apply sandboxing to restrict iframe actions securely
+      iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-presentation allow-popups");
+
+      videoContainer.appendChild(iframe);
+      videoModal.classList.remove("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeVideo() {
+    if (videoContainer && videoModal) {
+      // Clear content securely
+      videoContainer.textContent = "";
+      videoModal.classList.add("opacity-0", "pointer-events-none");
+      document.body.style.overflow = "";
+    }
+  }
+
+  playButton?.addEventListener("click", openVideo);
+  footerButton?.addEventListener("click", openVideo);
+  closeModal?.addEventListener("click", closeVideo);
+  videoModal?.addEventListener("click", (e) => {
+    if (e.target === videoModal) {
+      closeVideo();
+    }
+  });
+</script>

@@ -110,4 +110,37 @@ import XboxIcon from "@/assets/xbox.svg"
       successMsg.classList.remove("hidden");
     }
   });
+
+  // Release Countdown Timer Logic
+  const targetDate = new Date("December 31, 2026 00:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      const countdownEl = document.querySelector(".font-mono");
+      if (countdownEl) countdownEl.innerHTML = "<div class='col-span-4 text-2xl font-bold text-pink-500'>¡GTA VI ESTÁ AQUÍ!</div>";
+      clearInterval(countdownInterval);
+      return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    if (daysEl) daysEl.innerText = days.toString().padStart(2, "0");
+    if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, "0");
+    if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, "0");
+    if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, "0");
+  }
+
+  updateCountdown();
+  const countdownInterval = setInterval(updateCountdown, 1000);
 </script>
